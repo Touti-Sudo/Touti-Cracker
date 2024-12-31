@@ -1,4 +1,131 @@
 ## **Touti Cracker**
+## English version :
+
+## 📖 Project Overview
+
+**✨ Touti Cracker** is an educational tool designed for creating and managing brute-force password attacks for educational purposes only. 🚨 Please use this tool responsibly and respect ethical boundaries. 🙏 The author is not responsible for any malicious or unauthorized use of this tool.
+
+---
+
+## 🛠️ Features
+
+- 🛠️ Generate personalized or random password lists.
+- 💾 Save system and SAM registry files.
+- 🚀 Automate Hashcat download, extraction, and execution.
+- 🔍 Extract and crack hashes with ease.
+
+---
+
+## ⚙️ Installation
+
+### Prerequisites
+
+1. **🐍 Python 3.8 or higher**
+2. **📦 pip** (Python package manager)
+3. **🗜️ 7-Zip** (for extracting Hashcat files)
+
+### Steps
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/your-repository/Touti-Cracker.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Touti-Cracker
+   ```
+
+3. Install the required Python libraries:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Ensure that 7-Zip is installed and added to your system's PATH.
+
+---
+
+## 🖥️ Usage
+
+Run the script using Python:
+
+```bash
+python touti_cracker.py
+```
+
+Follow the on-screen instructions to:
+
+- 🔑 Generate password lists.
+- 🗂️ Extract and save registry keys.
+- ⚡ Use Hashcat for cracking passwords.
+
+### Example
+
+```text
+Do you want to specify information and generate passwords? (y/n): y
+How many passwords do you want to generate for brute force? : 10
+Provide information to generate passwords (press 0 to skip):
+First Name: John
+Family Name: Doe
+Nick Name: JD
+Date of birth (DD/MM/YYYY): 01/01/1990
+Pet Name: Max
+Country: USA
+City: New York
+...
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License with a disclaimer:
+
+**📜 Disclaimer**: This tool is for educational purposes only. The author is not liable for any misuse of this tool. Use it responsibly. 🙌
+
+For more details, see the LICENSE file.
+
+---
+
+## ⚠️ Disclaimer
+
+By using this tool, you agree to the following terms:
+
+- 📚 This tool is intended solely for educational purposes.
+- ⚠️ Any misuse of this tool is strictly the responsibility of the user.
+- ❌ The author does not endorse illegal or unethical activities.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! 🌟 If you'd like to contribute:
+
+1. 🍴 Fork the repository.
+2. 🌱 Create a feature branch (`git checkout -b feature-name`).
+3. 💾 Commit your changes (`git commit -m 'Add feature'`).
+4. 📤 Push to your branch (`git push origin feature-name`).
+5. 🔄 Open a pull request.
+
+---
+
+## 👤 Author
+
+This project was created by [Your Name]. ✍️ For more information, visit my GitHub profile or contact me. 📧
+
+---
+
+## 🌟 Acknowledgments
+
+- 🛠️ **Hashcat**: For providing powerful password recovery tools.
+- 🎨 **PyFiglet**: For creating ASCII art titles.
+- 🌍 **Community**: For continuous support and feedback.
+
+---
+## French version:
 
 "**Touti Cracker(Beta)**" est un outil éducatif développé pour démontrer certains concepts liés à la sécurité informatique, comme la création de listes de mots de passe, la sauvegarde de clés de registre, et les techniques de brute force. **Ce projet est uniquement à des fins éducatives**.
 
@@ -102,4 +229,3 @@ Ce projet est sous [licence MIT](./LICENSE). Consultez le fichier LICENSE pour p
 
 - [Site officiel de Hashcat](https://hashcat.net/hashcat/)
 - [Documentation de Python](https://docs.python.org/3/)
-
