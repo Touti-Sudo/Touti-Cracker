@@ -65,7 +65,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
 2. Suivez les instructions affichées dans le terminal. Par exemple :
 
    - Entrez les informations pour générer une liste de mots de passe personnalisée.
-   - Spécifiez le système d'exploitation cible (Windows, Linux, etc.).
+   - Spécifiez le système d'exploitation cible (Windows 11 est le seul système compatible, mais de nouvelles mises à jour seront disponibles pour le rendre multiplateforme)
    - Lancez Hashcat pour effectuer une attaque par brute force sur un hachage spécifique.
 
 3. Les résultats (par exemple, les mots de passe générés) seront sauvegardés sur le bureau de l'utilisateur dans un fichier texte.
