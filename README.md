@@ -52,14 +52,22 @@
 
 ## 🖥️ Usage
 
-Run the script using Python:
+1.Run the script using Python:
 
 ```bash
 python Touti Cracker-beta version-.py
 ```
-Make sure that you are runnig the script in admin mod.
+# If an error occurred when launching try:
+```bash
+py "Touti Cracker-beta version-.py"
+```
+# Or :
+```bash
+py Touti Cracker-beta version-.py
+```
+2.Make sure that you are runnig the script in admin mod.
 
-Follow the on-screen instructions to:
+3.Follow the on-screen instructions to:
 
 - 🔑 Generate password lists.
 - 🗂️ Extract and save registry keys.
@@ -192,8 +200,16 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
    ```bash
    python Touti Cracker-beta version-.py
    ```
-2. Assurez vous de le lancer en mode admin.
-3. Suivez les instructions affichées dans le terminal. Par exemple :
+   # Si une erreur survient, vous pouvez essayer ceci :
+   ```bash
+   py Touti Cracker-beta version-.py
+   ```
+   # Ou:
+   ```bash
+   py "Touti Cracker-beta version-.py"
+   ```
+3. Assurez vous de le lancer en mode admin.
+4. Suivez les instructions affichées dans le terminal. Par exemple :
 
    - Entrez les informations pour générer une liste de mots de passe personnalisée.
    - Spécifiez le système d'exploitation cible (Windows 11 est le seul système compatible, mais de nouvelles mises à jour seront disponibles pour le rendre multiplateforme)
