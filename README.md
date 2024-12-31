@@ -51,7 +51,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
    ```
 
 4. Assurez-vous que l'outil `7-Zip` est installé pour l'extraction automatique de Hashcat et de poser le fichier "Touti Cracker" dans votre bureau.
-
+5. assurez vous de le lancer en mode admin
 ---
 
 ## 🔄 Usage
