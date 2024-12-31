@@ -29,13 +29,13 @@
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-repository/Touti-Cracker.git
+   git clone https://github.com/Touti-Sudo/Touti-Cracker.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd Touti-Cracker
+   cd Touti Cracker
    ```
 
 3. Install the required Python libraries:
@@ -45,6 +45,8 @@
    ```
 
 4. Ensure that 7-Zip is installed and added to your system's PATH.
+5. Make sure that the file is in your desktop.
+## Note: Hashcat is automatically installed if it is not already.
 
 ---
 
@@ -53,8 +55,9 @@
 Run the script using Python:
 
 ```bash
-python touti_cracker.py
+python Touti Cracker-beta version-.py
 ```
+Make sure that you are runnig the script in admin mod.
 
 Follow the on-screen instructions to:
 
@@ -114,7 +117,7 @@ Contributions are welcome! 🌟 If you'd like to contribute:
 
 ## 👤 Author
 
-This project was created by [Your Name]. ✍️ For more information, visit my GitHub profile or contact me. 📧
+This project was created by [Touti]. ✍️ For more information, visit my GitHub profile or contact me. 📧
 
 ---
 
@@ -168,7 +171,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
 2. Accédez au répertoire du projet :
 
    ```bash
-   cd Touti-Cracker
+   cd Touti Cracker
    ```
 
 3. Installez les dépendances Python nécessaires :
@@ -179,6 +182,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
 
 4. Assurez-vous que l'outil `7-Zip` est installé pour l'extraction automatique de Hashcat et de poser le fichier "Touti Cracker" dans votre bureau.
 5. assurez vous de le lancer en mode admin
+## Note : Hashcat est automatiquement installé s'il ne l'est pas déjà.
 ---
 
 ## 🔄 Usage
@@ -186,10 +190,10 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
 1. Lancez le script principal avec Python :
 
    ```bash
-   python touti_cracker.py
+   python Touti Cracker-beta version-.py
    ```
-
-2. Suivez les instructions affichées dans le terminal. Par exemple :
+2. Assurez vous de le lancer en mode admin.
+3. Suivez les instructions affichées dans le terminal. Par exemple :
 
    - Entrez les informations pour générer une liste de mots de passe personnalisée.
    - Spécifiez le système d'exploitation cible (Windows 11 est le seul système compatible, mais de nouvelles mises à jour seront disponibles pour le rendre multiplateforme)
@@ -220,8 +224,8 @@ Ce projet est sous [licence MIT](./LICENSE). Consultez le fichier LICENSE pour p
 
 ## 👨‍💻 Auteur
 
-- **Touti (Anes)**\
-  Pour toute question ou retour, contactez-moi via mon [GitHub](https://github.com/\[VotreNomOuPseudonyme]).
+- **Touti**\
+  Pour toute question ou retour, contactez-moi via mon [GitHub](https://github.com/\Touti-Sudo).
 
 ---
 
