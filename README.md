@@ -50,7 +50,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
    pip install -r requirements.txt
    ```
 
-4. (Facultatif) Assurez-vous que l'outil `7-Zip` est installé pour l'extraction automatique de Hashcat.
+4. Assurez-vous que l'outil `7-Zip` est installé pour l'extraction automatique de Hashcat et de poser le fichier "Touti Cracker" dans votre bureau.
 
 ---
 
