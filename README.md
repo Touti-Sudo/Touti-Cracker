@@ -1,6 +1,6 @@
 ## **Touti Cracker**
 
-"**Touti Cracker**" est un outil éducatif développé pour démontrer certains concepts liés à la sécurité informatique, comme la création de listes de mots de passe, la sauvegarde de clés de registre, et les techniques de brute force. **Ce projet est uniquement à des fins éducatives**.
+"**Touti Cracker(Beta)**" est un outil éducatif développé pour démontrer certains concepts liés à la sécurité informatique, comme la création de listes de mots de passe, la sauvegarde de clés de registre, et les techniques de brute force. **Ce projet est uniquement à des fins éducatives**.
 
 ---
 
