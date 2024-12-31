@@ -4,7 +4,7 @@ import os
 import requests
 import subprocess
 try:
-    gui = pyfiglet.figlet_format("Touti Cracker", font="slant")
+    gui = pyfiglet.figlet_format("Touti Cracker.beta", font="slant")
     print(gui)
     the_link="https://github.com/Touti-Sudo"
     info=print("Welcome to Touti cracker and thank you for choosing my hacking tool if you want more informations about my tool you can check my README.txt you can also check my Github account:" + the_link + "\nThis tool will allow you to hack anyone password. This is for educationnal purpose only , i am not responsible for any bad and suspecious activities.Thank you for counsidring my words !! (this version is now just compatible for windows 11 but new updates will make it cross platform this my github account for more details) ")
