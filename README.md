@@ -35,7 +35,7 @@
 2. Navigate to the project directory:
 
    ```bash
-   cd Touti Cracker
+   cd Touti-Cracker
    ```
 
 3. Install the required Python libraries:
@@ -171,7 +171,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
 2. Accédez au répertoire du projet :
 
    ```bash
-   cd Touti Cracker
+   cd Touti-Cracker
    ```
 
 3. Installez les dépendances Python nécessaires :
