@@ -65,7 +65,7 @@ py "Touti Cracker-beta version-.py"
 ```bash
 py Touti Cracker-beta version-.py
 ```
-2.Make sure that you are runnig the script in admin mod.
+2.Make sure that you are runnig the script in admin mod and disable antivirus software
 
 3.Follow the on-screen instructions to:
 
