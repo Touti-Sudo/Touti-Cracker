@@ -215,7 +215,7 @@ Avant d'utiliser cet outil, assurez-vous d'avoir les éléments suivants :
    - Spécifiez le système d'exploitation cible (Windows 11 est le seul système compatible, mais de nouvelles mises à jour seront disponibles pour le rendre multiplateforme)
    - Lancez Hashcat pour effectuer une attaque par brute force sur un hachage spécifique.
 
-3. Les résultats (par exemple, les mots de passe générés) seront sauvegardés sur le bureau de l'utilisateur dans un fichier texte.
+3. Les résultats (par exemple, les mots de passe générés) seront sauvegardés sur le bureau de l'utilisateur dans un fichier texte dans un dossier nommé Touti cracker.
 
 ---
 
