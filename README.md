@@ -68,7 +68,7 @@
 
 Here is a preview of **Touti Cracker** in action:
 
-![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker-main/assets/teste.gif)
+![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/teste.gif)
 
 ---
 
@@ -138,7 +138,7 @@ Here is a preview of **Touti Cracker** in action:
 
 Voici un aperçu de **Touti Cracker** en action :
 
-![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker-main/assets/teste.gif)
+![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/teste.gif)
 
 ---
 
