@@ -41,6 +41,7 @@ try:
         response = requests.get(url, stream=True)
         if response.status_code == 200:
             with open(hashcatpath, "wb") as file:
+                os.makedirs(chemin_fichier_de_hashcat, exist_ok=True)
                 for chunk in response.iter_content(chunk_size=8192):
                         file.write(chunk)
             print(info+"Hashcat downloaded successfully.")
