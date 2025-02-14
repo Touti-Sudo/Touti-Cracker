@@ -27,8 +27,8 @@ try:
     versionpy=list(pythonversioncommand.stdout)
     versionpy.remove(" ")
     versionpy.remove(".")
+    del versionpy [10]
     versionpy.remove(".")
-    versionpy.remove("7")
     versionpy.remove("\n")
     versionpy="".join(versionpy)
     print(info+"you are runing on " + versionpy)
@@ -244,6 +244,7 @@ try:
                     longeur =secrets.choice(range(3, 17)) 
                     mot_de_passe = ''.join(secrets.choice(liste_complete,) for _ in range(longeur))
                     mot_de_passee = f"{i + 1}. {mot_de_passe}"
+                    mot_de_passee=mot_de_passee.split(".",1)[-1].strip()
                     print(mot_de_passee)
                     fichier.write(mot_de_passee + "\n")
 
