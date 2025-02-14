@@ -3,15 +3,19 @@ import pyfiglet
 import os
 import requests
 import subprocess
-from termcolor import colored
+from colorama import init, Fore, Back, Style
+init()
+
 try:
-    info=colored("[Info:]","light_blue")
-    warning=colored("[Warning:]","magenta")
-    disclaimer=colored("[Disclaimer:]","yellow")
-    error=colored("[Error:]","light_red")
-    inpute=colored("[Input:]","light_green")
+
+
+    info = Fore.BLUE + "[Info:]" + Style.RESET_ALL
+    warning = Fore.MAGENTA + "[Warning:]" + Style.RESET_ALL
+    disclamer = Fore.YELLOW + "[Disclamer:]" + Style.RESET_ALL
+    error = Fore.RED + "[Error:]" + Style.RESET_ALL
+    inpute = Fore.GREEN + "[Input:]" + Style.RESET_ALL
     
-    gui = colored(pyfiglet.figlet_format("Touti Cracker", font="slant"),"light_red")
+    gui = Fore.LIGHTRED_EX + pyfiglet.figlet_format("Touti Cracker", font="slant") + Style.RESET_ALL
     print(gui)
     the_link="https://github.com/Touti-Sudo"
     infos=print(info + "Welcome to Touti cracker and thank you for choosing my hacking tool if you want more informations about my tool you can check my README.txt you can also check my Github account:" + the_link + "\nThis tool will allow you to hack anyone password.")
@@ -179,7 +183,7 @@ try:
                 print(command_lunch_hashcats.stderr)
 
         else:
-            print(disclamer+"Linux and Mac are actually not compatible with the program but they will be in the future.")
+            print(disclamer+"Linux and Mac are actually not compatible with the program but they will be in the future.Thank you for using my software")
             exit()
 
     def generer_mots_de_passe():
@@ -206,9 +210,10 @@ try:
             for i in range(number_of_generated_words):
                 longeur = secrets.choice(range(3, 16))
                 mot_de_passe = ''.join(secrets.choice(informations) for _ in range(longeur))
-                mot_de_passee = f"{i + 1}. {mot_de_passe}"
+                mot_de_passee =f"{i + 1}.{mot_de_passe}"
+                mot_de_passee=mot_de_passee.split(".", 1)[-1].strip()
                 print(mot_de_passee)
-                fichier.write(mot_de_passee + "\n")
+                fichier.write(mot_de_passee +"\n")
 
         print(info+f"All passwords have been saved to: {chemin_fichier}")
         cracker()
@@ -251,11 +256,13 @@ except KeyboardInterrupt:
     print(error+"Program interrupted. Exiting...")
     exit()
 except ValueError as e:
-    print(error+f"Error: {e}")
+    print(error+f" {e}")
     exit()
 except PermissionError :
-    print(error+"Error please run Touti Cracker at admin mod! and disable antivirus software")
+    print(error+"Please run Touti Cracker at admin mod! and disable antivirus software")
     exit()
 except FileNotFoundError :
     print(error+"The file was not found. Try reinstalling Touti Cracker and 7-Zip, and check the information you provided to us, including the capitalization of your username if there is.")
     exit()
+except OSError : 
+    print(error + "Please check your system compatibility and the information given to us !")
