@@ -7,7 +7,7 @@ from termcolor import colored
 try:
     info=colored("[Info:]","light_blue")
     warning=colored("[Warning:]","magenta")
-    disclamer=colored("[Disclamer:]","yellow")
+    disclaimer=colored("[Disclaimer:]","yellow")
     error=colored("[Error:]","light_red")
     inpute=colored("[Input:]","light_green")
     
@@ -248,7 +248,7 @@ try:
         else:
             print(error+"Please enter a valid choice (y/n).")
 except KeyboardInterrupt:
-    print(error+"\nProgram interrupted. Exiting...")
+    print(error+"Program interrupted. Exiting...")
     exit()
 except ValueError as e:
     print(error+f"Error: {e}")
