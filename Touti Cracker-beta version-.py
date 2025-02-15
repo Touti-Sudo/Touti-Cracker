@@ -194,12 +194,26 @@ try:
 
         print(info+"Provide information to generate passwords (press 0 to skip):")
         Name = input(inpute+"First Name: ") or ""
+        if Name=="0":
+            Name=""
         Family = input(inpute+"Family Name: ") or ""
+        if Family=="0":
+            Family=""
         Nick = input(inpute+"Nick Name: ") or ""
+        if Nick=="0":
+            Nick=""
         birth = input(inpute+"Date of birth (DD/MM/YYYY): ") or ""
-        pet = input(inpute+"Pet Name: ") or ""
+        if birth=="0":
+            birth=""
+        pet = input(inpute+"Pet Name: ") or "" 
+        if pet=="0":
+            pet=""
         country = input(inpute+"Country: ") or ""
+        if country=="0":
+            country=""
         city = input(inpute+"City: ") or ""
+        if city=="0":
+            city=""
 
         informations.extend([Name, Family, Nick, birth, pet, country, city])
         informations = [info for info in informations if info]  
