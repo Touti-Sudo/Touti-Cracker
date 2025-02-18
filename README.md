@@ -1,5 +1,7 @@
 ## **Touti Cracker**
 
+![Mon Logo](assets/mon-logo.png)
+
 ## 🇬🇧 English version :
 
 ## 📚 Project Overview
