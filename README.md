@@ -1,6 +1,6 @@
 ## **Touti Cracker**
 
-![Mon Logo](assets/mon-logo.png)
+![Mon Logo](assets/logo.png)
 
 ## 🇬🇧 English version :
 
