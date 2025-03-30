@@ -329,7 +329,7 @@ try:
 except KeyboardInterrupt:
     print(error+"Program interrupted. Exiting...")
     subprocess.run("cls",shell=True)
-    neon_text("Good Baye", duration=3)
+    neon_text("Good Bye", duration=3)
     print("Thank's for using Touti-Sudo's Software")
     exit()
 
