@@ -13,8 +13,11 @@ from rich.text import Text
 from unit.neon_module import neon_text
 console = Console()
 from colorama import init, Fore, Back, Style
+import ctypes
 init()
 clear= subprocess.run("cls",shell=True)
+
+
 
 try:
 
@@ -33,6 +36,21 @@ try:
     seventh= Fore.RED + " [7]" + Style.RESET_ALL
     eigth= Fore.RED + " [8]" + Style.RESET_ALL
     nine= Fore.YELLOW + " [99]" + Style.RESET_ALL
+    def is_admin():  # Check if the script is running with admin privileges
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        except:
+            return False
+    def is_av_active():
+        try:
+            # Check if antivirus(Windwos Defender) is active
+            return os.system("sc query WinDefend | find \"RUNNING\"") == 0
+        except:
+            return False
+
+
+
+
     def typewriter(text, delay=0.05):
         """Affiche un texte avec effet machine à écrire."""
         for char in text:
@@ -46,7 +64,7 @@ try:
     gui = Fore.LIGHTRED_EX + pyfiglet.figlet_format("Touti Cracker"+" v2.0", font="slant") + Style.RESET_ALL
     gui2 = gui+ "                                        " +creator + "\n"
     typewriter(gui2,0.01)
-    neon_color = "#FFFF00"  # Jaune néon
+    neon_color = "#FFFF00" 
     texte = "🔥 Welcome to Touti Cracker 🔥\nUse responsibly!"
     console.print(Panel(f"[bold cyan]{texte}[/bold cyan]", 
                         title=f"[bold {neon_color}]Touti Cracker[/bold {neon_color}]", 
@@ -59,6 +77,16 @@ try:
     typewriter(infos,0.01)
     infos= disclamer+"This is a beta version of Touti Cracker and it may contain bugs or errors, please report them on my github page: " + the_link + " and i will fix them as soon as possible !"
     typewriter(infos,0.01)
+    if not is_admin(): # Check if the script is running with admin privileges
+        print("\n" + warning + "Run as Administrator!")
+    else:
+        print("\n" + info + "You are running as Administrator!")
+    
+    if is_av_active(): # Check if antivirus is active
+        print(warning + "Antivirus may block the Password Cracking process. Temporarily disable it.")
+    else:
+        print(info + "Antivirus is disabled.")
+
     print("\n")
     user = os.getlogin()
 
@@ -71,7 +99,7 @@ try:
     versionpy.remove("\n")
     versionpy="".join(versionpy)
     printpy=info+"you are running on " + versionpy+"\n"
-    
+
     chemin_fichier_de_hashcat = "C:\\Users\\" + user + "\\hashcat"
     hashcatpath = chemin_fichier_de_hashcat + "\\hashcat-6.2.6.7z"
     url = r"https://hashcat.net/files/hashcat-6.2.6.7z"
@@ -259,9 +287,9 @@ try:
             ]
             styled_text = Text()
             for i, line in enumerate(menu_text):
-                color = neon_shades[i % len(neon_shades)]  # Alterne les couleurs
+                color = neon_shades[i % len(neon_shades)]  
                 styled_text.append(line, style=f"bold {color}")
-                styled_text.append("\n")  # Nouvelle ligne
+                styled_text.append("\n")  
 
 
             console.print(Panel(styled_text, title="🔹 Menu 🔹", border_style="cyan"))
@@ -273,7 +301,7 @@ try:
             if choice == "99":
                 print(info+"Exiting...")
                 subprocess.run("cls",shell=True)
-                neon_text("Good Baye", duration=3)
+                neon_text("Good Bye", duration=3)
                 print("Thank's for using Touti-Sudo's Software")
                 break
             elif choice == "2":
@@ -297,6 +325,7 @@ try:
                 exit()
             else:
                 print(error+"Please enter a valid choice (1/2/3/4/5/6/99).")
+    
 except KeyboardInterrupt:
     print(error+"Program interrupted. Exiting...")
     subprocess.run("cls",shell=True)
@@ -315,3 +344,4 @@ except FileNotFoundError :
     exit()
 except OSError : 
     print(error + "Please check your system compatibility and the information given to us !")
+    exit()
