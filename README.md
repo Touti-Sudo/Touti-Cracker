@@ -10,15 +10,21 @@
 
 ---
 
-## 🆕 New Update
+## 🆕 New Update v2.0
 
-- Improved compatibility with Windows 10 and Windows 11.
+- **Neon UI**: New dynamic interface with `rich` library (colors, panels, typewriter effect).  
+- **Admin Check**: Automatic verification of administrator privileges.  
+- **Registry Backup**: Streamlined SAM/SYSTEM registry saving process.  
+- **Windows 10/11 Unified Logic**: Removed duplicate code for OS handling.  
+- **Antivirus Warning**: Added user guidance for access issues.  
+- **Python Version Parsing**: Improved reliability.  
 - Optimized hash extraction and brute-force attack process.
 - Better error handling and permission management.
 - **Automatic installation and extraction of Hashcat**.
 - Enhanced custom wordlist generation.
 - **New file verification feature** to ensure integrity before running.
 - **Improved user interface** for better experience.
+
 
 ---
 
@@ -30,6 +36,9 @@
 - 🔍 Extract and crack hashes with ease.
 - ✅ **Verify necessary files before execution.**
 - 🎨 **Enhanced user interface.**
+- 🌈 **Neon-themed UI** with interactive menus.  
+- 🛡️ **Auto-admin check** for critical operations.  
+- 📂 **One-click registry backup** (SAM/SYSTEM).
 
 ---
 
@@ -70,7 +79,7 @@
 
 Here is a preview of **Touti Cracker** in action:
 
-![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/teste.gif)
+![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/test.gif)
 
 ---
 
@@ -82,13 +91,18 @@ Here is a preview of **Touti Cracker** in action:
 
 ## 🆕 Nouvelle mise à jour
 
-- Amélioration de la compatibilité avec Windows 10 et Windows 11.
+- **Interface néon** : Effets visuels dynamiques (`rich`).  
+- **Vérification auto-admin** : Détection des droits administrateur.  
+- **Sauvegarde des registres** : Optimisation de la sauvegarde SAM/SYSTEM.  
+- **Logique unifiée** : Suppression du code dupliqué pour Windows 10/11.  
+- **Avertissement antivirus** : Instructions pour contourner les blocages.  
 - Optimisation de l'extraction des hashes et du processus d'attaque par force brute.
 - Meilleure gestion des erreurs et des permissions.
 - **Installation et extraction automatique de Hashcat**.
 - Génération améliorée de wordlists personnalisées.
 - **Ajout d'une vérification des fichiers** avant exécution pour garantir l'intégrité.
 - **Amélioration de l'interface utilisateur** pour une meilleure expérience.
+  
 
 ---
 
@@ -100,6 +114,9 @@ Here is a preview of **Touti Cracker** in action:
 4. **Automatisation** : Simplifie les tâches complexes de sécurité et les rend accessibles aux débutants pour des fins éducatives.
 5. ✅ **Vérification automatique des fichiers nécessaires avant exécution.**
 6. 🎨 **Interface utilisateur améliorée.**
+7.  🌈 **Interface néon** avec menus interactifs.
+8.  🛡️ **Détection automatique des droits admin**.
+9.  📂 **Sauvegarde en un clic** des registres (SAM/SYSTEM).
 
 ---
 
@@ -140,7 +157,7 @@ Here is a preview of **Touti Cracker** in action:
 
 Voici un aperçu de **Touti Cracker** en action :
 
-![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/teste.gif)
+![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/test.gif)
 
 ---
 
