@@ -77,7 +77,7 @@ try:
     typewriter(infos,0.01)
     infos= disclamer+"This is a beta version of Touti Cracker and it may contain bugs or errors, please report them on my github page: " + the_link + " and i will fix them as soon as possible !"
     typewriter(infos,0.01)
-    if not is_admin(): # Check if the script is running with admin privileges
+    if not is_admin(): # Check if the script is running with admin privileges !
         print("\n" + warning + "Run as Administrator!")
     else:
         print("\n" + info + "You are running as Administrator!")
