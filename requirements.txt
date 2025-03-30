@@ -1,4 +1,4 @@
-pyfiglet==0.8.post1
+pyfiglet==0.7.5
 requests==2.31.0
 rich==13.7.0
 colorama==0.4.6
