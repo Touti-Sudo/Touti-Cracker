@@ -30,6 +30,7 @@ if systemtype == "Darwin":
     subprocess.run("source impacket-env/bin/activate", shell=True, text=True)
     subprocess.run("pip install impacket", shell=True, text=True)
     subprocess.run("pip install git+https://github.com/SecureAuthCorp/impacket.git", shell=True, text=True)
+error = Fore.RED + "[Error]:" + Style.RESET_ALL
 def check_and_install_dependencies():
     try:
         print(info + "Checking and installing dependencies...")
@@ -40,34 +41,36 @@ def check_and_install_dependencies():
         print(info+"Dependencies checked and installed successfully.")
     except Exception as e:
         print(error+f"Failed to check and install dependencies: {e}")       
-def auto_update():
+def auto_update(info, error):
     try:
         print(info + "Checking for updates...")
-        repo_url = "https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/Touti%20Cracker-beta%20version-.py"
-        response = requests.get(repo_url)
+        github_url = "https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/Touti%20Cracker-beta%20version-.py"
+
+        response = requests.get(github_url)
         if response.status_code == 200:
-            with open(sys.argv[0], "r", encoding="utf-8") as current_file:
-                    current_code = current_file.read()
-                    if response.text != current_code:
-                        print(info + "Update available. Downloading the latest version...")
-                        try:
-                            with open(sys.argv[0], "w", encoding="utf-8") as current_file:
-                                current_file.write(response.text)
-                        except PermissionError:
-                            print(error + "Permission denied. Unable to write to the script file. Please run the program with appropriate permissions.")
-                            sys.exit(1)
-                        print(info + "Update completed. Restarting the program...")
-                        os.execv(sys.executable, ['python'] + sys.argv)
-                    else:
-                        print(info + "You are already using the latest version.")
+            with open(sys.argv[0], "r", encoding="utf-8") as f:
+                local_code = f.read()
+            if response.text != local_code:
+                print(info+"Une mise à jour est disponible !")
+                with open(sys.argv[0], "w", encoding="utf-8", newline='') as f:
+
+                    f.write(response.text)
+                print(info+"Mise à jour terminée. Redémarrage...")
+                subprocess.run([sys.executable] + sys.argv)
+            else:
+                print(info+"Aucun changement détecté. Vous utilisez la dernière version.")
         else:
-                print(warning + "Failed to check for updates. Please check your internet connection.")
+            print(error+"Impossible de récupérer la version distante.")
+    except Exception as e:
+        print( error+f"Échec de la mise à jour automatique : {e}")
+
     except Exception as e:
         print(error + f"Error during update: {e}")
-if sys.version_info < (3, 6):
-    print("This script requires Python 3.6")
-    sys.exit(1)
-
+    except KeyboardInterrupt:
+        print(error + "Update interrupted. Exiting...")
+        sys.exit()
+check_and_install_dependencies() 
+auto_update(info, error)
 init()
 
 
@@ -157,12 +160,6 @@ try:
         print(warning + "Antivirus may block the Password Cracking process. Temporarily disable it.")
     else:
         print(info + "Antivirus is disabled.")
-    print("\n")
-    print(info + "Checking system compatibility...")
-    print(info + "Checking for new unpdates...")
-    print("\n")
-    check_and_install_dependencies() 
-    auto_update()
     print("\n")
     user = os.getlogin()
 
