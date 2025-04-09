@@ -42,30 +42,7 @@ def check_and_install_dependencies():
         print(info+"Dependencies checked and installed successfully.")
     except Exception as e:
         print(error+f"Failed to check and install dependencies: {e}")       
-def auto_update(info, error):
-    try:
-        print(info + "Checking for updates...")
-        github_url = "https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/Touti%20Cracker-beta%20version-.py"
-
-        response = requests.get(github_url)
-        if response.status_code == 200:
-            with open(sys.argv[0], "r", encoding="utf-8") as f:
-                local_code = f.read()
-            if response.text.strip() != local_code.strip():  # Compare trimmed content to avoid unnecessary updates
-                print(info + "An update is available!")
-                with open(sys.argv[0], "w", encoding="utf-8", newline='') as f:
-                    f.write(response.text)
-                print(info + "Update completed. Restarting...")
-                subprocess.run([sys.executable] + sys.argv)
-                sys.exit()
-            else:
-                print(info + "No changes detected. You are using the latest version.")
-        else:
-            print(error + "Unable to fetch the remote version.")
-    except Exception as e:
-        print(error + f"Automatic update failed: {e}")
-check_and_install_dependencies() 
-auto_update(info, error)
+check_and_install_dependencies()
 init()
 
 
