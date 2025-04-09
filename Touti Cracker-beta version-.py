@@ -31,6 +31,7 @@ if systemtype == "Darwin":
     subprocess.run("pip install impacket", shell=True, text=True)
     subprocess.run("pip install git+https://github.com/SecureAuthCorp/impacket.git", shell=True, text=True)
 error = Fore.RED + "[Error]:" + Style.RESET_ALL
+info = Fore.BLUE + "[Info]:" + Style.RESET_ALL
 def check_and_install_dependencies():
     try:
         print(info + "Checking and installing dependencies...")
