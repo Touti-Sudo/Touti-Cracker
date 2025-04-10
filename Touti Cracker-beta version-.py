@@ -1,11 +1,40 @@
+import platform
+import subprocess
+systemtype = platform.system()
+if systemtype == "Darwin":
+    info ="[Info]:"
+    print(info + "Installing important dependencies for MacOS...")
+    subprocess.run("brew install python", shell=True, text=True)
+    subprocess.run("brew unlink python && brew link python", shell=True, text=True)
+    subprocess.run("brew install libffi", shell=True, text=True)
+    subprocess.run("brew install openssl", shell=True, text=True)
+    subprocess.run("python3 -m venv impacket-env",shell=True, text=True)
+    subprocess.run("source impacket-env/bin/activate", shell=True, text=True)
+    subprocess.run("python3 -m ensurepip", shell=True, text=True)
+    subprocess.run("pip install impacket", shell=True, text=True)
+def check_and_install_dependencies():
+    error ="[Error]:"
+    info ="[Info]:"
+    import requests
+    import subprocess
+    
+    try:
+        print(info + "Checking and installing dependencies...")
+        response = requests.get("https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/requirements.txt")
+        with open("requirements.txt", "wb") as file:
+            file.write(response.content)
+        subprocess.run(["pip", "install", "-r", "requirements.txt"])
+        print(info+"Dependencies checked and installed successfully.")
+    except Exception as e:
+        print(error+f"Failed to check and install dependencies: {e}")       
+check_and_install_dependencies()
+
 try:
     import secrets
     import pyfiglet
     import os
     import requests
-    import subprocess
     import webbrowser
-    import platform
     import sys
     import time
     from rich.console import Console
@@ -19,33 +48,7 @@ except ImportError as e:
     print(f"Error: {e}. Please install the required modules using:")
     print("pip install -r requirements.txt")
     sys.exit(1)
-systemtype = platform.system()
-if systemtype == "Darwin":
-    info = Fore.BLUE + "[Info]:" + Style.RESET_ALL
-    print(info + "Installing important dependencies for MacOS...")
-    subprocess.run("brew install python@3.11", shell=True, text=True)
-    subprocess.run("brew install libffi", shell=True, text=True)
-    subprocess.run("brew install openssl", shell=True, text=True)
-    subprocess.run("python3 -m venv impacket-env",shell=True, text=True)
-    subprocess.run("source impacket-env/bin/activate", shell=True, text=True)
-    subprocess.run("pip install impacket", shell=True, text=True)
-    subprocess.run("pip install git+https://github.com/SecureAuthCorp/impacket.git", shell=True, text=True)
-error = Fore.RED + "[Error]:" + Style.RESET_ALL
-info = Fore.BLUE + "[Info]:" + Style.RESET_ALL
-def check_and_install_dependencies():
-    try:
-        print(info + "Checking and installing dependencies...")
-        response = requests.get("https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/requirements.txt")
-        with open("requirements.txt", "wb") as file:
-            file.write(response.content)
-        subprocess.run(["pip", "install", "-r", "requirements.txt"])
-        print(info+"Dependencies checked and installed successfully.")
-    except Exception as e:
-        print(error+f"Failed to check and install dependencies: {e}")       
-check_and_install_dependencies()
 init()
-
-
 
 def clearsystem():
     if systemtype =="Windows":
