@@ -20,7 +20,6 @@
 
 ### 🆕 What's New in v2.1.0?
 
-- ✨ **Auto-Updater** integrated with GitHub.
 - 🧪 **MacOS support** with Homebrew integration.
 - 🔐 **Admin rights checker** with auto-restart.
 - 💥 **Auto Hashcat setup + extraction via 7-Zip**.
@@ -114,7 +113,6 @@ Created by **Touti-Sudo** ✍️
 
 ### 🆕 Quoi de neuf dans la v2.1.0 ?
 
-- ✨ **Mise à jour automatique** intégrée à GitHub.
 - 🧪 **Support MacOS** avec intégration Homebrew.
 - 🔐 **Vérification des droits administrateur** avec redémarrage automatique.
 - 💥 **Installation et extraction de Hashcat via 7-Zip**.
