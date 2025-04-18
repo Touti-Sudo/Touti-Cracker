@@ -1,8 +1,7 @@
 ## **Touti Cracker**
 
-do not forget to star ⭐🌟⭐
 ![Mon Logo](assets/logo.png)
-
+do not forget to star ⭐🌟⭐
 ## 🇬🇧 English version :
 
 ## 🚀 Touti Cracker v2.1.0
