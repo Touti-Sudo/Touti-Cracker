@@ -1,8 +1,10 @@
 ## **Touti Cracker**
 
 ![Mon Logo](assets/logo.png)
-do not forget to star ⭐🌟⭐
+
 ## 🇬🇧 English version :
+
+do not forget to star ⭐🌟⭐
 
 ## 🚀 Touti Cracker v2.1.0
 
@@ -97,6 +99,8 @@ Created by **Touti-Sudo** ✍️
 
 
 ## 🇫🇷 Version française :
+
+n'oubliez pas de mettre une étoile ⭐🌟⭐
 
 ## 🚀 Touti Cracker v2.1.0
 
