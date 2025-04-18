@@ -1,5 +1,6 @@
 ## **Touti Cracker**
 
+do not forget to star ⭐🌟⭐
 ![Mon Logo](assets/logo.png)
 
 ## 🇬🇧 English version :
