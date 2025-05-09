@@ -17,7 +17,7 @@ def check_and_install_dependencies():
     error ="[Error]:"
     info ="[Info]:"
     import requests
-    import subprocess
+
     
     try:
         print(info + "Checking and installing dependencies...")
@@ -33,7 +33,6 @@ check_and_install_dependencies()
 try:
     import secrets
     import pyfiglet
-    import os
     import requests
     import webbrowser
     import sys
@@ -81,7 +80,12 @@ try:
     nine= Fore.YELLOW + " [99]" + Style.RESET_ALL
     def is_admin():  # Check if the script is running with admin privileges
         try:
-            return ctypes.windll.shell32.IsUserAnAdmin()
+            if systemtype == "Linux":
+                return os.getuid() == 0
+            elif systemtype == "Darwin":
+                return os.getuid() == 0
+            elif systemtype == "Windows":
+                return ctypes.windll.shell32.IsUserAnAdmin()
         except:
             return False
     def is_av_active():
