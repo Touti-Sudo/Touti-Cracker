@@ -143,15 +143,9 @@ try:
     print("\n")
     user = os.getlogin()
 
-    pythonversioncommand=subprocess.run("python --version",shell=True,capture_output=True,text=True)
-    versionpy=list(pythonversioncommand.stdout)
-    versionpy.remove(" ")
-    versionpy.remove(".")
-    del versionpy [10]
-    versionpy.remove(".")
-    versionpy.remove("\n")
-    versionpy="".join(versionpy)
-    printpy=info+"you are running on " + versionpy+"\n"
+    versionpy=platform.python_version()
+    versionpy="Python"+versionpy.replace('.', '')[:3]
+    print(info+"you are running on " + versionpy+"\n")
     if systemtype == "Windows":
         chemin_fichier_de_hashcat = "C:\\Users\\" + user + "\\hashcat"
         hashcatpath = chemin_fichier_de_hashcat + "\\hashcat-6.2.6.7z"
