@@ -140,7 +140,7 @@ try:
         print(warning + "Antivirus may block the Password Cracking process. Temporarily disable it.")
     else:
         print(info + "Antivirus is disabled.")
-    print("\n")
+
     user = os.getlogin()
 
     versionpy=platform.python_version()
