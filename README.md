@@ -43,7 +43,6 @@ do not forget to star ⭐🌟⭐
 - 📥 Auto-download and unzip Hashcat if missing.
 - 🔎 Use `impacket-secretsdump` to extract hashes.
 - 📂 Auto-create directories for output files.
-- 🔁 Live update checker + script self-replacement.
 - 🧪 Compatible with Windows / Linux / MacOS.
 
 ---
@@ -138,7 +137,6 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 - 📥 Télécharger et décompresser automatiquement Hashcat si absent.
 - 🔎 Utiliser `impacket-secretsdump` pour extraire les hashs.
 - 📂 Créer automatiquement les dossiers nécessaires.
-- 🔁 Vérification de mise à jour en direct + remplacement automatique du script.
 - 🧪 Compatible avec Windows / Linux / MacOS.
 
 ---
