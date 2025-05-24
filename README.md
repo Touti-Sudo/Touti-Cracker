@@ -20,56 +20,56 @@ do not forget to star ⭐🌟⭐
 
 ---
 
-### 🆕 What's New in v2.2.0?
+## 🆕 What's New in v2.2.0?
 
-# [1] AUTOMATED PASSWORD CRACKING SUITE
-# ----------------------------------------------------
-#  🛠️  Hashcat Automation:
-#     - Auto-downloads Hashcat v6.2.6 if missing
-#     - One-click SAM/SYSTEM hash extraction
-#     - Built-in benchmark mode (-O flag)
-#
-#  🔑  Intelligent Wordlist Generator:
-#     - Custom profiles (personal data-based)
-#     - Random mode (3-16 char length)
-#     - Saves to ~/Desktop/Touti_Cracker/passwordlist.txt
+#### [1] AUTOMATED PASSWORD CRACKING SUITE
+ ----------------------------------------------------
+  🛠️  Hashcat Automation:
+     - Auto-downloads Hashcat v6.2.6 if missing
+     - One-click SAM/SYSTEM hash extraction
+     - Built-in benchmark mode (-O flag)
 
-# [2] WI-FI PENTESTING TOOLKIT
-# ----------------------------------------------------
-#  📶  Automated WPA/WPA2 Cracking:
-#     - Auto-detects wireless interfaces
-#     - Handshake capture with airodump-ng
-#     - Deauth attack integration (--deauth 10)
-#     - Seamless hashcat transition for .cap files
-#
-#  ⚡  One-Click Attacks:
-#     $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
-#     - Automatic wordlist selection
-#     - Progress tracking with tqdm
+  🔑  Intelligent Wordlist Generator:
+     - Custom profiles (personal data-based)
+     - Random mode (3-16 char length)
+     - Saves to ~/Desktop/Touti_Cracker/passwordlist.txt
 
-# [3] ADVANCED SYSTEM TOOLS
-# ----------------------------------------------------
-#  💾  Registry Exploitation:
-#     - SAM/SYSTEM hive backup (admin required)
-#     - Impacket-secretsdump integration
-#     - Local/NTLM hash extraction
-#
-#  🐍  Payload Factory:
-#     - Meterpreter reverse shell generator
-#     - Supports Windows/Linux targets
-#     - Listener auto-configuration
+#### [2] WI-FI PENTESTING TOOLKIT
+ ----------------------------------------------------
+  📶  Automated WPA/WPA2 Cracking:
+     - Auto-detects wireless interfaces
+     - Handshake capture with airodump-ng
+     - Deauth attack integration (--deauth 10)
+     - Seamless hashcat transition for .cap files
 
-# [4] ENVIRONMENT MANAGEMENT
-# ----------------------------------------------------
-#  🔍  Auto-Dependency Installer:
-#     - Detects OS (Win/Lin/Mac)
-#     - Installs: Aircrack-ng, Metasploit, Hashcat
-#     - PIP requirements auto-setup
-#
-#  🛡️  Privilege Management:
-#     - Admin check with auto-UAC bypass
-#     - AV detection (Windows Defender)
-#     - Clean log generation
+  ⚡  One-Click Attacks:
+     $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
+     - Automatic wordlist selection
+     - Progress tracking with tqdm
+
+#### [3] ADVANCED SYSTEM TOOLS
+ ----------------------------------------------------
+  💾  Registry Exploitation:
+     - SAM/SYSTEM hive backup (admin required)
+     - Impacket-secretsdump integration
+     - Local/NTLM hash extraction
+
+  🐍  Payload Factory:
+     - Meterpreter reverse shell generator
+     - Supports Windows/Linux targets
+     - Listener auto-configuration
+
+#### [4] ENVIRONMENT MANAGEMENT
+ ----------------------------------------------------
+  🔍  Auto-Dependency Installer:
+     - Detects OS (Win/Lin/Mac)
+     - Installs: Aircrack-ng, Metasploit, Hashcat
+     - PIP requirements auto-setup
+
+  🛡️  Privilege Management:
+     - Admin check with auto-UAC bypass
+     - AV detection (Windows Defender)
+     - Clean log generation
 
 ---
 
@@ -158,56 +158,56 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 
 ---
 
-### 🆕 Quoi de neuf dans la v2.2.0 ?
+## 🆕 Quoi de neuf dans la v2.2.0 ?
 
-# [1] SUITE AUTOMATISÉE DE CRACKAGE
-# ----------------------------------------------------
-#  🛠️  Automatisation Hashcat:
-#     - Télécharge Hashcat v6.2.6 si absent
-#     - Extraction de hash SAM/SYSTEM en un clic
-#     - Mode benchmark intégré (-O)
-#
-#  🔑  Générateur Intelligent:
-#     - Profils personnalisés (basés sur données cibles)
-#     - Mode aléatoire (3-16 caractères)
-#     - Sauvegarde dans ~/Desktop/Touti_Cracker/passwordlist.txt
+ #### [1] SUITE AUTOMATISÉE DE CRACKAGE
+ ----------------------------------------------------
+  🛠️  Automatisation Hashcat:
+     - Télécharge Hashcat v6.2.6 si absent
+     - Extraction de hash SAM/SYSTEM en un clic
+     - Mode benchmark intégré (-O)
 
-# [2] OUTIL WI-FI PENTEST
-# ----------------------------------------------------
-#  📶  Crackage WPA/WPA2 Automatisé:
-#     - Détection auto des interfaces
-#     - Capture handshake avec airodump-ng
-#     - Attaque de déauth intégrée (--deauth 10)
-#     - Transition transparente vers hashcat
-#
-#  ⚡  Attaques en Un Clic:
-#     $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
-#     - Sélection auto de wordlist
-#     - Suivi de progression avec tqdm
+  🔑  Générateur Intelligent:
+     - Profils personnalisés (basés sur données cibles)
+     - Mode aléatoire (3-16 caractères)
+     - Sauvegarde dans ~/Desktop/Touti_Cracker/passwordlist.txt
 
-# [3] OUTILS SYSTÈME AVANCÉS
-# ----------------------------------------------------
-#  💾  Exploitation de Registre:
-#     - Backup SAM/SYSTEM (admin requis)
-#     - Intégration impacket-secretsdump
-#     - Extraction de hash locaux/NTLM
-#
-#  🐍  Générateur de Payloads:
-#     - Reverse shell Meterpreter
-#     - Support Windows/Linux
-#     - Configuration auto de l'écouteur
+#### [2] OUTIL WI-FI PENTEST
+ ----------------------------------------------------
+  📶  Crackage WPA/WPA2 Automatisé:
+     - Détection auto des interfaces
+     - Capture handshake avec airodump-ng
+     - Attaque de déauth intégrée (--deauth 10)
+     - Transition transparente vers hashcat
 
-# [4] GESTION D'ENVIRONNEMENT
-# ----------------------------------------------------
-#  🔍  Installateur Auto:
-#     - Détection OS (Win/Lin/Mac)
-#     - Installe: Aircrack-ng, Metasploit, Hashcat
-#     - Configuration auto des requirements PIP
-#
-#  🛡️  Gestion de Privilèges:
-#     - Vérification admin + bypass UAC
-#     - Détection antivirus (Windows Defender)
-#     - Génération de logs propres
+  ⚡  Attaques en Un Clic:
+     $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
+     - Sélection auto de wordlist
+     - Suivi de progression avec tqdm
+
+ #### [3] OUTILS SYSTÈME AVANCÉS
+ ----------------------------------------------------
+  💾  Exploitation de Registre:
+     - Backup SAM/SYSTEM (admin requis)
+     - Intégration impacket-secretsdump
+     - Extraction de hash locaux/NTLM
+
+  🐍  Générateur de Payloads:
+     - Reverse shell Meterpreter
+     - Support Windows/Linux
+     - Configuration auto de l'écouteur
+
+ #### [4] GESTION D'ENVIRONNEMENT
+ ----------------------------------------------------
+  🔍  Installateur Auto:
+     - Détection OS (Win/Lin/Mac)
+     - Installe: Aircrack-ng, Metasploit, Hashcat
+     - Configuration auto des requirements PIP
+
+  🛡️  Gestion de Privilèges:
+     - Vérification admin + bypass UAC
+     - Détection antivirus (Windows Defender)
+     - Génération de logs propres
 
 ---
 
