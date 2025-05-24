@@ -34,6 +34,7 @@ def check_and_install_dependencies():
 
 
         subprocess.run(["pip", "install", "-r", "requirements.txt"])
+        subprocess.run(["pip", "install", "--upgrade", "pip", "setuptools", "wheel"])
 
         print(info + "Dependencies checked and installed successfully.")
 
