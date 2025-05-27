@@ -495,9 +495,9 @@ try:
                 "[3] Steal Local Target Registers",
                 "[4] Crack a Wifi Password",
                 "[5] Reverse Shell Payload",
-                "[6] View Github Page",
-                "[7] View README.txt",
-                "[8] View Website",
+                "[6] launch msfconsole",
+                "[7] View Github Page",
+                "[8] View README.txt",
                 "[9] View License",
                 "[99] Exit"
             ]
@@ -526,10 +526,10 @@ try:
             elif choice == "1":
                 generer_mots_de_passe()
 
-            elif choice == "6":
+            elif choice == "7":
                 webbrowser.open(the_link)
 
-            elif choice == "7":
+            elif choice == "8":
                 print(info+"Opening README.txt...")
                 the_link2 = "https://github.com/Touti-Sudo/Touti-Cracker/blob/main/README.md"
                 webbrowser.open(the_link2)
@@ -537,6 +537,17 @@ try:
             elif choice == "3":
                 sauvegarder_registres()
                 print(info+"You can now bruteforce the password using the saved registers")
+            elif choice == "6":
+                if systemtype == "Windows":
+                    print(info+"Launching msfconsole...")
+                    chemin_msfconsole = "C:\\Users\\" + user + "\\metasploit-framework\\bin\\msfconsole.bat"
+                    subprocess.run(chemin_msfconsole, shell=True, text=True)
+                elif systemtype == "Linux":
+                    print(info+"Launching msfconsole...")
+                    subprocess.run("msfconsole", shell=True, text=True)
+                elif systemtype == "Darwin":
+                    print(info+"Launching msfconsole...")
+                    subprocess.run("msfconsole", shell=True, text=True)
             
             elif choice == "4":
                 if systemtype == "Windows":
@@ -667,6 +678,7 @@ try:
                             print(error+"MacOS and Android are not supported yet but it will be in the next update. StayTuned: " + the_link)    
                     elif systemtype == "Darwin":
                         print("" + error + "MacOS is not supported yet but it will be in the next update and much more !. StayTuned: " + the_link)
+                        
                 else:
                     print(error+"Please enter a valid choice (1/2).")
             else:
