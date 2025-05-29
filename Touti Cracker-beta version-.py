@@ -2,6 +2,7 @@ import platform
 import subprocess
 import os
 import requests
+import time
 import sys
 systemtype = platform.system()
 user = os.getlogin()
@@ -58,7 +59,7 @@ def check_and_install_dependencies():
                     print(info + "Aircrack-ng downloaded successfully.")
                 else:
                     print(error + "Failed to download aircrack-ng.")
-                    sys.exit()
+                    time.sleep(5)
 
 
             print(info + "Unzipping aircrack-ng...")
@@ -70,6 +71,7 @@ def check_and_install_dependencies():
    
             else:
                 print(error + f"Error unzipping aircrack-ng: {result.stderr}")
+                time.sleep(5)
 
             metasploit_path = os.path.join("C:\\Users", user, "metasploit")
             metasploit_url = "https://windows.metasploit.com/metasploitframework-latest.msi"
@@ -84,7 +86,8 @@ def check_and_install_dependencies():
                     response.raise_for_status()
                 except requests.RequestException as e:
                     print(error + f"Failed to download Metasploit: {e}")
-                    sys.exit()
+                    time.sleep(5)
+                    
 
                 os.makedirs(metasploit_path, exist_ok=True)
                 with open(installer_path, "wb") as file:
@@ -104,7 +107,8 @@ def check_and_install_dependencies():
 
                 except subprocess.CalledProcessError as e:
                     print(error + f"Failed to launch the installer: {e}")
-                    sys.exit()
+                    time.sleep(5)
+                    
 
         elif systemtype == "Linux":
             subprocess.run("sudo apt-get update", shell=True)
