@@ -185,14 +185,23 @@ try:
     seventh= Fore.RED + " [7]" + Style.RESET_ALL
     eigth= Fore.RED + " [8]" + Style.RESET_ALL
     nine= Fore.YELLOW + " [99]" + Style.RESET_ALL
-    def is_admin():  # Check if the script is running with admin privileges
-        try:
-            return ctypes.windll.shell32.IsUserAnAdmin()
-        except:
-            return False
+    def is_admin():
+        if systemtype == "Windows":  
+            try:
+                return ctypes.windll.shell32.IsUserAnAdmin()
+            except:
+                return False
+        elif systemtype == "Linux":
+            return os.geteuid() == 0
+        elif systemtype == "Darwin":
+            try:
+                return os.getuid() == 0
+            except:
+                return False
+
     def is_av_active():
         try:
-            # Check if antivirus(Windwos Defender) is active
+            
             return os.system("sc query WinDefend | find \"RUNNING\"") == 0
         except:
             return False
