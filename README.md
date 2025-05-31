@@ -70,7 +70,7 @@ do not forget to star ⭐🌟⭐
 ####  🛡️  Privilege Management:
      - Admin check with auto-UAC bypass
      - AV detection (Windows Defender)
-     - Clean log generation
+
 
 ---
 
