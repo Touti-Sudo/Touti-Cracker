@@ -38,18 +38,13 @@ def check_and_install_dependencies():
         subprocess.run(["pip", "install", "--upgrade", "pip", "setuptools", "wheel"])
 
         print(info + "Dependencies checked and installed successfully.")
-
-
-        if systemtype == "Windows":
-
-            aircrack_url = r"https://download.aircrack-ng.org/aircrack-ng-1.7-win.zip"
-            aircrack_path = os.path.join("C:\\Users", user, "aircrack")
-            extract_path = os.path.join(aircrack_path, "extracted")
-            bin_path = os.path.join(extract_path, "bin")
-            zip_file = os.path.join(aircrack_path, "aircrack-ng.zip")
-
-            if not os.path.exists(aircrack_path):
+        def aircrackdownload():
                 print(info + "Downloading aircrack-ng...")
+                aircrack_url = r"https://download.aircrack-ng.org/aircrack-ng-1.7-win.zip"
+                aircrack_path = os.path.join("C:\\Users", user, "aircrack")
+                if not os.path.exists(aircrack_path):
+                    os.makedirs(aircrack_path, exist_ok=True)
+                zip_file = os.path.join(aircrack_path, "aircrack-ng.zip")
                 response = requests.get(aircrack_url, stream=True)
                 if response.status_code == 200:
                     os.makedirs(aircrack_path, exist_ok=True)
@@ -61,18 +56,45 @@ def check_and_install_dependencies():
                     print(error + "Failed to download aircrack-ng.")
                     time.sleep(5)
 
+        if systemtype == "Windows":
+
+            
+            if not os.path.exists("C:\\Program Files\\7-Zip\\7z.exe"):
+                print(error + "7-Zip is not installed. Please install 7-Zip from https://www.7-zip.org/ and try again.")
+                time.sleep(5)
+                return
+            aircrack_zip=rf"C:\Users\{user}\aircrack\aircrack-ng.zip"
+            if not os.path.exists(aircrack_zip):
+                aircrackdownload()
+            aircrack_path = os.path.join("C:\\Users", user, "aircrack")
+            extract_path = os.path.join(aircrack_path, "extracted")
+            bin_path = os.path.join(extract_path, "aircrack-ng-1.7-win", "bin")
+            if not os.path.exists(extract_path):
+                os.makedirs(extract_path, exist_ok=True)
+            
+            if not os.path.exists(bin_path):
+                os.makedirs(bin_path, exist_ok=True)
+            zip_file = os.path.join(aircrack_path, "aircrack-ng.zip")
+
+            if not os.path.exists(aircrack_path):
+                print(info + "Downloading aircrack-ng...")
+                aircrackdownload()
+
+
 
             print(info + "Unzipping aircrack-ng...")
-            command = f'"C:\\Program Files\\7-Zip\\7z.exe" x "{zip_file}" -o"{extract_path}" -y'
-            result = subprocess.run(command, shell=True, capture_output=True, text=True)
+            command = fr'"C:\\Program Files\\7-Zip\\7z.exe" x "{zip_file}" -o"{extract_path}" -y'
+            result = subprocess.run(command, shell=True,text=True )
 
+
+
+            path_to_add = rf"C:\Users\{user}\aircrack\extracted\aircrack-ng-1.7-win\bin"
+            command = f'setx PATH "%PATH%;{path_to_add}"'
+            
+            
+            result = subprocess.run(command, shell=True,text=True)
             if result.returncode == 0:
-                print(info + "Aircrack-ng unzipped successfully.")
-   
-            else:
-                print(error + f"Error unzipping aircrack-ng: {result.stderr}")
-                time.sleep(5)
-
+                print(info + "Aircrack-ng path added to system PATH successfully.")
             metasploit_path = os.path.join("C:\\Users", user, "metasploit")
             metasploit_url = "https://windows.metasploit.com/metasploitframework-latest.msi"
             installer_path = os.path.join(metasploit_path, "metasploit.msi")
@@ -219,7 +241,7 @@ try:
 
     the_link="https://github.com/Touti-Sudo"
     creator= Fore.RED + " Created by ----> Touti-Sudo : "+ the_link + Style.RESET_ALL
-    gui = Fore.LIGHTRED_EX + pyfiglet.figlet_format("Touti Cracker"+" v2.2.0", font="slant") + Style.RESET_ALL
+    gui = Fore.LIGHTRED_EX + pyfiglet.figlet_format("Touti Cracker"+" v2.2.1", font="slant") + Style.RESET_ALL
     gui2 = gui+ "                                        " +creator + "\n"
     typewriter(gui2,0.01)
     neon_color = "#FFFF00" 
@@ -256,14 +278,8 @@ try:
     print("\n")
 
 
-    pythonversioncommand=subprocess.run("python --version",shell=True,capture_output=True,text=True)
-    versionpy=list(pythonversioncommand.stdout)
-    versionpy.remove(" ")
-    versionpy.remove(".")
-    del versionpy [10]
-    versionpy.remove(".")
-    versionpy.remove("\n")
-    versionpy="".join(versionpy)
+
+    versionpy=platform.python_version()
     printpy=info+"you are running on " + versionpy+"\n"
     if systemtype == "Windows":
         chemin_fichier_de_hashcat = "C:\\Users\\" + user + "\\hashcat"
