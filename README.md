@@ -35,7 +35,7 @@ do not forget to star ⭐🌟⭐
      - Random mode (3-16 char length)
      - Saves to ~/Desktop/Touti_Cracker/passwordlist.txt
 
-#### [2] WI-FI PENTESTING TOOLKIT
+### [2] WI-FI PENTESTING TOOLKIT
  ----------------------------------------------------
 ####  📶  Automated WPA/WPA2 Cracking:
      - Auto-detects wireless interfaces
@@ -70,7 +70,7 @@ do not forget to star ⭐🌟⭐
 ####  🛡️  Privilege Management:
      - Admin check with auto-UAC bypass
      - AV detection (Windows Defender)
-     - Clean log generation
+
 
 ---
 
