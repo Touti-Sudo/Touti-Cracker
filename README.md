@@ -25,70 +25,70 @@ do not forget to star ⭐🌟⭐
 
 ### [1] AUTOMATED PASSWORD CRACKING SUITE
  ----------------------------------------------------
-####  🛠️  Hashcat Automation:
+####    Hashcat Automation:
      - Auto-downloads Hashcat v6.2.6 if missing
      - One-click SAM/SYSTEM hash extraction
      - Built-in benchmark mode (-O flag)
 
- #### 🔑  Intelligent Wordlist Generator:
+ ####   Intelligent Wordlist Generator:
      - Custom profiles (personal data-based)
      - Random mode (3-16 char length)
      - Saves to ~/Desktop/Touti_Cracker/passwordlist.txt
 
 ### [2] WI-FI PENTESTING TOOLKIT
  ----------------------------------------------------
-####  📶  Automated WPA/WPA2 Cracking:
+####    Automated WPA/WPA2 Cracking:
      - Auto-detects wireless interfaces
      - Handshake capture with airodump-ng
      - Deauth attack integration (--deauth 10)
      - Seamless hashcat transition for .cap files
 
-####  ⚡  One-Click Attacks:
+####    One-Click Attacks:
      $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
      - Automatic wordlist selection
      - Progress tracking with tqdm
 
 ### [3] ADVANCED SYSTEM TOOLS
  ----------------------------------------------------
- #### 💾  Registry Exploitation:
+ ####   Registry Exploitation:
      - SAM/SYSTEM hive backup (admin required)
      - Impacket-secretsdump integration
      - Local/NTLM hash extraction
 
-####  🐍  Payload Factory:
+####    Payload Factory:
      - Meterpreter reverse shell generator
      - Supports Windows/Linux targets
      - Listener auto-configuration
 
 ### [4] ENVIRONMENT MANAGEMENT
  ----------------------------------------------------
- #### 🔍  Auto-Dependency Installer:
+ ####   Auto-Dependency Installer:
      - Detects OS (Win/Lin/Mac)
      - Installs: Aircrack-ng, Metasploit, Hashcat
      - PIP requirements auto-setup
 
-####  🛡️  Privilege Management:
+####    Privilege Management:
      - Admin check with auto-UAC bypass
      - AV detection (Windows Defender)
 
 
 ---
 
-### 🔧 Core Features
-- 🧪 **CrossPlatform**.
-- 🔐 **Admin rights checker** with auto-restart.
-- 💥 **Auto Hashcat setup**.
-- 🧠 Better Python version parsing and detection.
-- ⚠️ **Antivirus activity check**.
-- 🔍 Hash extraction via `secretsdump` (Impacket).
-- ✅ **Dependencies fetched automatically**.
-- 🎨 Enhanced **neon-styled terminal UI** using `rich`, `colorama`, `pyfiglet`.
-- 📁 Improved directory management for saved files.
-- 🐛 Robust error handling (Permissions, FileNotFound, etc.).
-- 🎲 Generate password lists (Custom or Random).
-- 💽 Backup SYSTEM & SAM registry hives.
-- 🛠️ Launch Hashcat automatically to crack hashes.
-- 📂 Auto-create directories for output files.
+###  Core Features
+-  **CrossPlatform**.
+-  **Admin rights checker** with auto-restart.
+-  **Auto Hashcat setup**.
+-  Better Python version parsing and detection.
+-  **Antivirus activity check**.
+-  Hash extraction via `secretsdump` (Impacket).
+-  **Dependencies fetched automatically**.
+-  Enhanced **neon-styled terminal UI** using `rich`, `colorama`, `pyfiglet`.
+-  Improved directory management for saved files.
+-  Robust error handling (Permissions, FileNotFound, etc.).
+-  Generate password lists (Custom or Random).
+-  Backup SYSTEM & SAM registry hives.
+-  Launch Hashcat automatically to crack hashes.
+-  Auto-create directories for output files.
 
 ---
 
@@ -96,9 +96,9 @@ do not forget to star ⭐🌟⭐
 
 #### Prerequisites:
 
-- 🐍 Python 3.8+
-- 📦 pip installed
-- 🟩 7-Zip installed + added to system PATH (7-Zip is not require for MacOS and Linux)
+-  Python 3.8+
+-  pip installed
+-  7-Zip installed + added to system PATH (7-Zip is not require for MacOS and Linux)
 
 #### Steps:
 
@@ -116,25 +116,25 @@ $ pip install -r requirements.txt
 $ python Touti\ Cracker-beta\ version-.py
 ```
 
-> ⚠️ On Windows, run the script as Administrator. On Linux/macOS, use `sudo` if needed.
+>  On Windows, run the script as Administrator. On Linux/macOS, use `sudo` if needed.
 
 ---
 
-### 🖥️ Screenshots / Demo
+###  Screenshots / Demo
 
 ![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/test.gif)
 
 ---
 
-### 👨‍💻 Developer
+###  Developer
 
-Created by **Touti-Sudo** ✍️
+Created by **Touti-Sudo** 
 
 - GitHub: [https://github.com/Touti-Sudo](https://github.com/Touti-Sudo)
 
 ---
 
-### 📜 Disclaimer
+### ⚠️ Disclaimer
 
 > Touti Cracker is intended only for ethical and educational purposes. Using it on systems without authorization is illegal and punishable by law. Please act responsibly.
 
@@ -163,71 +163,71 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 
  ### [1] SUITE AUTOMATISÉE DE CRACKAGE
  ----------------------------------------------------
- #### 🛠️  Automatisation Hashcat:
+ ####   Automatisation Hashcat:
      - Télécharge Hashcat v6.2.6 si absent
      - Extraction de hash SAM/SYSTEM en un clic
      - Mode benchmark intégré (-O)
 
-####  🔑  Générateur Intelligent:
+####    Générateur Intelligent:
      - Profils personnalisés (basés sur données cibles)
      - Mode aléatoire (3-16 caractères)
      - Sauvegarde dans ~/Desktop/Touti_Cracker/passwordlist.txt
 
 ### [2] OUTIL WI-FI PENTEST
  ----------------------------------------------------
- #### 📶  Crackage WPA/WPA2 Automatisé:
+ ####   Crackage WPA/WPA2 Automatisé:
      - Détection auto des interfaces
      - Capture handshake avec airodump-ng
      - Attaque de déauth intégrée (--deauth 10)
      - Transition transparente vers hashcat
 
-####  ⚡  Attaques en Un Clic:
+####    Attaques en Un Clic:
      $ ./ToutiCracker --wifi --bssid XX:XX:XX:XX:XX:XX
      - Sélection auto de wordlist
      - Suivi de progression avec tqdm
 
  ### [3] OUTILS SYSTÈME AVANCÉS
  ----------------------------------------------------
- #### 💾  Exploitation de Registre:
+ ####   Exploitation de Registre:
      - Backup SAM/SYSTEM (admin requis)
      - Intégration impacket-secretsdump
      - Extraction de hash locaux/NTLM
 
-####  🐍  Générateur de Payloads:
+####    Générateur de Payloads:
      - Reverse shell Meterpreter
      - Support Windows/Linux
      - Configuration auto de l'écouteur
 
  ### [4] GESTION D'ENVIRONNEMENT
  ----------------------------------------------------
-#### 🔍  Installateur Auto:
+####   Installateur Auto:
      - Détection OS (Win/Lin/Mac)
      - Installe: Aircrack-ng, Metasploit, Hashcat
      - Configuration auto des requirements PIP
 
- #### 🛡️  Gestion de Privilèges:
+ ####   Gestion de Privilèges:
      - Vérification admin + bypass UAC
      - Détection antivirus (Windows Defender)
      - Génération de logs propres
 
 ---
 
-### 🔧 Fonctionnalités principales
+###  Fonctionnalités principales
 
-- 🧪 **Multiplateforme**.
-- 🔐 **Vérificateur des droits d'administrateur** avec redémarrage automatique.
-- 💥 **Configuration automatique de Hashcat**.
-- 🧠 Meilleure analyse et détection des versions Python.
-- ⚠️ **Vérification de l'activité antivirus**.
-- 🔍 Extraction de hachage via `secretsdump` (Impacket).
-- ✅ **Récupération automatique des dépendances**.
-- 🎨 **Interface utilisateur de terminal néon** améliorée avec `rich`, `colorama`, `pyfiglet`.
-- 📁 Gestion améliorée des répertoires pour les fichiers enregistrés.
-- 🐛 Gestion robuste des erreurs (autorisations, fichier introuvable, etc.).
-- 🎲 Génération de listes de mots de passe (personnalisées ou aléatoires).
-- 💽 Sauvegarde des ruches de registre SYSTEM et SAM.
-- 🛠️ Lancez Hashcat automatiquement pour déchiffrer les hachages.
-- 📂 Créez automatiquement des répertoires pour les fichiers de sortie.
+-  **Multiplateforme**.
+-  **Vérificateur des droits d'administrateur** avec redémarrage automatique.
+-  **Configuration automatique de Hashcat**.
+-  Meilleure analyse et détection des versions Python.
+-  **Vérification de l'activité antivirus**.
+-  Extraction de hachage via `secretsdump` (Impacket).
+-  **Récupération automatique des dépendances**.
+-  **Interface utilisateur de terminal néon** améliorée avec `rich`, `colorama`, `pyfiglet`.
+-  Gestion améliorée des répertoires pour les fichiers enregistrés.
+-  Gestion robuste des erreurs (autorisations, fichier introuvable, etc.).
+-  Génération de listes de mots de passe (personnalisées ou aléatoires).
+-  Sauvegarde des ruches de registre SYSTEM et SAM.
+-  Lancez Hashcat automatiquement pour déchiffrer les hachages.
+-  Créez automatiquement des répertoires pour les fichiers de sortie.
 
 ---
 
@@ -235,9 +235,9 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 
 #### Prérequis :
 
-- 🐍 Python 3.8+
-- 📦 pip installé
-- 🟩 7-Zip installé et ajouté au PATH système (non requis pour MacOS et Linux)
+-  Python 3.8+
+-  pip installé
+-  7-Zip installé et ajouté au PATH système (non requis pour MacOS et Linux)
 
 #### Étapes :
 
@@ -259,20 +259,20 @@ $ python Touti\ Cracker-beta\ version-.py
 
 ---
 
-### 🖥️ Captures d'écran / Démo
+###  Captures d'écran / Démo
 
 ![Touti Cracker Demo](https://raw.githubusercontent.com/Touti-Sudo/Touti-Cracker/main/assets/test.gif)
 
 ---
 
-### 👨‍💻 Développeur
+###  Développeur
 
-Créé par **Touti-Sudo** ✍️
+Créé par **Touti-Sudo** 
 
 - GitHub : [https://github.com/Touti-Sudo](https://github.com/Touti-Sudo)
 
 ---
 
-### 📜 Avertissement
+### ⚠️ Avertissement
 
 > Touti Cracker est conçu uniquement pour des usages éthiques et pédagogiques. L'utiliser sur des systèmes sans autorisation est illégal et puni par la loi. Merci d'agir de manière responsable.
