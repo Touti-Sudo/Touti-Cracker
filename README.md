@@ -7,7 +7,7 @@ do not forget to star ⭐🌟⭐
 
 do not forget to star ⭐🌟⭐
 
-## 🚀 Touti Cracker v2.2.0
+## 🚀 Touti Cracker v2.2.1
 
 
 
@@ -21,7 +21,7 @@ do not forget to star ⭐🌟⭐
 
 ---
 
-## 🆕 What's New in v2.2.0?
+## 🆕 What's New in v2.2.1?
 
 ### [1] AUTOMATED PASSWORD CRACKING SUITE
  ----------------------------------------------------
@@ -146,7 +146,7 @@ Created by **Touti-Sudo** ✍️
 
 n'oubliez pas de mettre une étoile ⭐🌟⭐
 
-## 🚀 Touti Cracker v2.2.0
+## 🚀 Touti Cracker v2.2.1
 
 
 > **Important :** Cet outil est à but **strictement éducatif**. Toute mauvaise utilisation est **formellement interdite**. Le développeur décline toute responsabilité en cas d'usage non éthique.
@@ -159,7 +159,7 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 
 ---
 
-## 🆕 Quoi de neuf dans la v2.2.0 ?
+## 🆕 Quoi de neuf dans la v2.2.1 ?
 
  ### [1] SUITE AUTOMATISÉE DE CRACKAGE
  ----------------------------------------------------
