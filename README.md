@@ -188,7 +188,8 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 ## 🚀 Touti Cracker v2.2.2
 
 
-> [!WARNING] Cet outil est destiné uniquement à des fins éducatives. Toute utilisation abusive est strictement interdite. Le développeur décline toute responsabilité en cas d’usage non éthique.
+>[!WARNING]
+> Cet outil est destiné uniquement à des fins éducatives. Toute utilisation abusive est strictement interdite. Le développeur décline toute responsabilité en cas d’usage non éthique.
 
 ---
 
@@ -281,10 +282,11 @@ $ pip install -r requirements.txt
 $ python main.py
 ```
 
-> [!NOTE] Sous Windows, exécutez le script en tant qu’administrateur. Sous Linux/macOS, utilisez sudo si nécessaire.
+> [!NOTE]
+>  Sous Windows, exécutez le script en tant qu’administrateur. Sous Linux/macOS, utilisez sudo si nécessaire.
 
 > [!WARNING]
-- Veuillez désactiver votre antivirus pour une installation et un fonctionnement corrects
+> Veuillez désactiver votre antivirus pour une installation et un fonctionnement corrects
 
 - Assurez-vous que Metasploit est présent dans le PATH
 
@@ -308,9 +310,11 @@ Créé par **Touti-Sudo**
 
 
 
->[!WARNING] Touti Cracker est conçu uniquement pour des usages éthiques et pédagogiques. L'utiliser sur des systèmes sans autorisation est illégal et puni par la loi. Merci d'agir de manière responsable.
+>[!WARNING]
+> Touti Cracker est conçu uniquement pour des usages éthiques et pédagogiques. L'utiliser sur des systèmes sans autorisation est illégal et puni par la loi. Merci d'agir de manière responsable.
 
->[!IMPORTANT] Touti Cracker est actuellement en version bêta. Nous travaillons activement à l’amélioration des fonctionnalités, à la correction des bugs et à l’optimisation de l’expérience utilisateur. Vos retours sont très importants !
+>[!IMPORTANT]
+> Touti Cracker est actuellement en version bêta. Nous travaillons activement à l’amélioration des fonctionnalités, à la correction des bugs et à l’optimisation de l’expérience utilisateur. Vos retours sont très importants !
 
 ## 🤝 Contribuer
 
