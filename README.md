@@ -121,9 +121,14 @@ $ python main.py
 >  On Windows, run the script as Administrator. On Linux/macOS, use `sudo` if needed.
 
 > [!WARNING]
-- Please disable your antivirus software for proper installation and operation.
-- Please ensure that Metasploit is in the path.
+> Please disable your antivirus software for proper installation and operation.
+
+
+-  Please ensure that Metasploit is in the path.
+
+
 - Please ensure that Chocolatey and 7-Zip are properly installed.
+
 ---
 
 ## 📱 Screenshots / Demo
