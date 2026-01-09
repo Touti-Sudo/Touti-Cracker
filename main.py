@@ -67,7 +67,7 @@ def main():
         creator = Fore.RED + " Created by ----> Touti-Sudo : " + the_link + Style.RESET_ALL
         gui = (
             Fore.LIGHTRED_EX
-            + pyfiglet.figlet_format("Touti Cracker" + " v2.2.1", font="slant")
+            + pyfiglet.figlet_format("Touti Cracker" + " v2.2.2", font="slant")
             + Style.RESET_ALL
         )
         gui2 = gui + "                                        " + creator + "\n"
