@@ -4,12 +4,17 @@ import sys
 import requests
 import subprocess
 import time
-import winreg
+
+if platform.system() == "Windows":
+    import winreg
 
 
 systemtype = platform.system()
 
 def is_metasploit_installed():
+    if platform.system() != "Windows":
+        return False
+
     uninstall_keys = [
         r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
         r"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
@@ -73,7 +78,11 @@ def check_and_install_dependencies():
     error = "[Error]: "
     info = "[Info]: "
     warning = "[Warning]: "
-    user = os.getlogin()
+    try:
+        user = os.getlogin()
+    except OSError:
+        import getpass
+        user = getpass.getuser()
     systemtype = platform.system()
 
     try:
