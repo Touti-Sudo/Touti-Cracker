@@ -17,7 +17,11 @@ from scripts.wifi_cracking_script import automated_wifi_attack
 from scripts.payload_generation_script import payload_script
 def main():
     systemtype = platform.system()
-    user = os.getlogin()
+    try:
+        user = os.getlogin()
+    except OSError:
+        import getpass
+        user = getpass.getuser()
     mac_install()
     check_and_install_dependencies()
 
