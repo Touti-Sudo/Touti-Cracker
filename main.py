@@ -7,10 +7,10 @@ from scripts.dependencies_install_script import mac_install, check_and_install_d
 from scripts.ip_script import get_private_ip
 from scripts.clear_cmd_script import clearsystem
 from scripts.antivirus_check_script import is_av_active
+from scripts.reverse_shell_console import ReverseShellConsole
 from scripts.type_writer_script import typewriter
 from scripts.admin_check_script import is_admin
 from scripts.registers_saving_script import save_registers
-from scripts.ipv4_script import get_public_ip
 from scripts.password_generator_script import generate_passwords
 from scripts.cracking_script import cracker
 from scripts.wifi_cracking_script import automated_wifi_attack
@@ -26,13 +26,8 @@ def main():
     check_and_install_dependencies()
 
     try:
-        import csv
-        import secrets
         import pyfiglet
-        import signal
-        import requests
         import webbrowser
-        import socket
         from rich.console import Console
         from rich.panel import Panel
         from rich.text import Text
@@ -143,10 +138,11 @@ def main():
                 "[3] Steal Local Target Registers",
                 "[4] Crack a Wifi Password",
                 "[5] Reverse Shell Payload",
-                "[6] launch msfconsole",
-                "[7] View Github Page",
-                "[8] View README.txt",
-                "[9] View License",
+                "[6] launch Msfconsole",
+                "[7] launch Touti-Cracker console",
+                "[8] View Github Page",
+                "[9] View README.txt",
+                "[10] View License",
                 "[99] Exit",
             ]
             styled_text = Text()
@@ -170,10 +166,10 @@ def main():
             elif choice == "1":
                 generate_passwords(info=info, first=first, second=second, inputs=inputs, OS=systemtype, user=user, error=error)
 
-            elif choice == "7":
+            elif choice == "8":
                 webbrowser.open(the_link)
 
-            elif choice == "8":
+            elif choice == "9":
                 print(info + "Opening README.txt...")
                 the_link2 = (
                     "https://github.com/Touti-Sudo/Touti-Cracker/blob/main/README.md"
@@ -220,10 +216,12 @@ def main():
                         )
                     else:
                         print(error + "Please enter a valid choice (1/2).")
-            elif choice == "9":
+            elif choice == "10":
                 webbrowser.open(
                     "https://github.com/Touti-Sudo/Touti-Cracker/blob/main/LICENSE.txt"
                 )
+            elif choice =='7':
+                ReverseShellConsole(info=info)
             elif choice == "5":
                 payload_script(OS=systemtype,error=error,first=first,info=info,inputs=inputs,second=second,the_link=the_link,user=user,warning=warning,ip=ip)
             else:
@@ -247,8 +245,9 @@ def main():
     except FileNotFoundError as e:
         print(f"{error}  The file was not found. Try reinstalling Touti Cracker !   {e}")
         exit()
+    except ConnectionRefusedError as e:
+        print(f'{error} The connection was refused! the firewall of the target and or the attacker blocked the connection')
     except OSError:
-        print(error + "Please check your system compatibility and stability")
-        exit()
+        print(f'{error} Please check your system compatibility and stability')
 if __name__ == "__main__":
-    main()  
+    main() 

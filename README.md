@@ -21,7 +21,7 @@ do not forget to star ⭐🌟⭐
 
 do not forget to star ⭐🌟⭐
 
-# 🚀 Touti Cracker v2.2.2
+# 🚀 Touti Cracker v2.2.3
 
 
 
@@ -36,40 +36,21 @@ do not forget to star ⭐🌟⭐
 
 ---
 
-## 🆕 What's New in v2.2.2?
+## 🆕 What's New in v2.2.3?
 
-### [1] Project Reorganization
+### [1] New features
  ----------------------------------------------------
-- Refactored the project structure for better readability and maintainability
+- A special script reverse shell (local only)
 
-- Separated core logic, utility scripts, and assets into dedicated directories
+- Capable of creating reverse shell payload generation and Initially achieved low detection rates across multiple antivirus engines during internal testing (for educational purposes)"
 
-- Improved file and module naming consistency across the project
-
-- Reduced code duplication by centralizing shared functions
-
-- Prepared the codebase for easier future updates and contributions
 ### [2] Bug Fixes & Stability Improvements
  ----------------------------------------------------
-- Fixed multiple runtime errors and unexpected crashes
+- Prepared the codebase for easier future updates and contributions
 
 - Improved error handling for missing files, permissions, and interruptions
 
-- Resolved platform‑specific issues (Windows / Linux compatibility)
-
-- Cleaned unused code and deprecated functions
-
-- Improved overall stability and execution flow
-
-### [3] Installation Script Review & Improvements
- ----------------------------------------------------
-- Reviewed and cleaned the installation script for reliability
-
-- Improved dependency checks and installation flow
-
-- Reduced installation failures caused by missing or incompatible packages
-
-- Made the installation process clearer and more user‑friendly
+- Resolved platform‑specific issues (Mac / Linux compatibility)
 
 - Prepared the script for easier troubleshooting and future extensions
 ---
@@ -89,6 +70,7 @@ do not forget to star ⭐🌟⭐
      -  Backup SYSTEM & SAM registry hives.
      -  Launch Hashcat automatically to crack hashes.
      -  Auto-create directories for output files.
+     -  New reverse shell script 
 
 ---
 
@@ -185,7 +167,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 n'oubliez pas de mettre une étoile ⭐🌟⭐
 
-## 🚀 Touti Cracker v2.2.2
+## 🚀 Touti Cracker v2.2.3
 
 
 >[!WARNING]
@@ -199,41 +181,25 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 
 ---
 
-## 🆕 Quoi de neuf dans la v2.2.2 ?
+## 🆕 Nouveautés de la version v2.2.3
 
- ### [1] Réorganisation du projet
- ----------------------------------------------------
-- Refonte de la structure du projet pour une meilleure lisibilité et maintenabilité
+### [1] Nouvelles fonctionnalités
+----------------------------------------------------
 
-- Séparation claire entre la logique principale, les scripts utilitaires et les assets
+- Ajout d'un script spécial de reverse shell (local uniquement).
 
-- Amélioration de la cohérence des noms de fichiers et de modules
+- Ajout de la génération de charges utiles (payloads) de reverse shell. Lors des tests internes, les payloads ont initialement obtenu un faible taux de détection sur plusieurs moteurs antivirus (à des fins éducatives).
 
-- Réduction de la duplication de code via la centralisation des fonctions communes
-
-- Préparation du projet pour de futures mises à jour et contributions
 ### [2] Corrections de bugs et améliorations de la stabilité
- ----------------------------------------------------
-- Correction de plusieurs erreurs d’exécution et crashs inattendus
+----------------------------------------------------
 
-- Amélioration de la gestion des erreurs (fichiers manquants, permissions, interruptions)
+- Préparation de la base de code pour faciliter les futures mises à jour et les contributions.
 
-- Résolution de problèmes spécifiques aux plateformes (Windows / Linux)
+- Amélioration de la gestion des erreurs liées aux fichiers manquants, aux autorisations et aux interruptions.
 
-- Suppression du code inutilisé et des fonctions obsolètes
+- Résolution de problèmes spécifiques aux plateformes (compatibilité Mac / Linux).
 
-- Amélioration globale de la stabilité et du flux d’exécution
-### [3] Révision et amélioration du script d’installation
- ----------------------------------------------------
-- Nettoyage et révision du script d’installation pour plus de fiabilité
-
-- Amélioration de la vérification et de l’installation des dépendances
-
-- Réduction des échecs d’installation liés aux paquets manquants ou incompatibles
-
-- Processus d’installation plus clair et plus convivial
-
-- Préparation du script pour un débogage et des extensions futures plus simples
+- Préparation du script pour faciliter le dépannage et les futures extensions.
 
 ---
 
@@ -253,6 +219,7 @@ n'oubliez pas de mettre une étoile ⭐🌟⭐
 -  Sauvegarde des ruches de registre SYSTEM et SAM.
 -  Lancez Hashcat automatiquement pour déchiffrer les hachages.
 -  Créez automatiquement des répertoires pour les fichiers de sortie.
+-  Un script reverse shell avancer
 
 ---
 
