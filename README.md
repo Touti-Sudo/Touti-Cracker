@@ -15,6 +15,8 @@ do not forget to star ⭐🌟⭐
   [![Stars](https://img.shields.io/github/stars/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/stargazers)
 
   [![Download from GitHub](https://img.shields.io/badge/Download-GitHub%20Releases-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Touti-Sudo/Touti-Cracker/releases)
+  
+  [![Made in Algeria](https://www.madeinalgeria.dev/badge/touti-cracker.svg)](https://www.madeinalgeria.dev/projects/touti-cracker)
 </div>
 
 ## 🇬🇧 English version :
@@ -119,7 +121,7 @@ $ python main.py
 
 ---
 
-## 👨‍💻 Developer
+## 👨‍💻 Contributors 
 
 ![Contributors](https://contributors-img.web.app/image?repo=Touti-Sudo/Touti-Cracker)
 Created by **Touti-Sudo** 
@@ -266,7 +268,7 @@ $ python main.py
 
 ---
 
-### 👨‍💻 Développeur
+### 👨‍💻 Contributeurs
 
 ![Contributors](https://contributors-img.web.app/image?repo=Touti-Sudo/Touti-Cracker)
 Créé par **Touti-Sudo** 
