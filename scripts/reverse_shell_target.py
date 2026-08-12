@@ -88,7 +88,7 @@ def ReverseShellTarget():
                         
                         try:
                             conn.send(json.dumps({"status": "ok", "output": "Goodbye"}).encode())
-                        except:
+                        except Exception:
                             pass
                         break
                     
