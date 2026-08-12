@@ -39,14 +39,12 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
 
                     print(info + "Extracting hashes from system and SAM files...")
 
-                    command_for_extracth = (
-                        f"python C:\\Users\\{user}\\AppData\\Local\\Programs\\Python\\{versionpy}\\Scripts\\secretsdump.py "
-                        f"-sam C:\\Users\\{user}\\Desktop\\Backup\\sam.save "
-                        f"-system C:\\Users\\{user}\\Desktop\\Backup\\system.save LOCAL"
-                    )
-
                     resultextract = subprocess.run(
-                        command_for_extracth, shell=True, capture_output=True, text=True
+                        ["python", rf"C:\Users\{user}\AppData\Local\Programs\Python\{versionpy}\Scripts\secretsdump.py",
+                         "-sam", rf"C:\Users\{user}\Desktop\Backup\sam.save",
+                         "-system", rf"C:\Users\{user}\Desktop\Backup\system.save",
+                         "LOCAL"],
+                        capture_output=True, text=True
                     )
                     print(info + "These are the results:\n" + resultextract.stdout)
                     if (
@@ -64,12 +62,10 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                    
                     print(info + "Launching Hashcat...")
 
-                    command_lunch_hashcat = (
-                        f' hashcat -O -m 1000 "{yourhash}" "{chemin_fichier}"'
-                    )
                     command_lunch_hashcats = subprocess.run(
-                        command_lunch_hashcat, shell=True, capture_output=True, text=True
-                    )
+                    ["hashcat", "-O", "-m", "1000", yourhash, chemin_fichier],
+                    capture_output=True, text=True
+                )
                     print(command_lunch_hashcats.stdout)
                     if command_lunch_hashcats.stderr:
                         print(error + "\n=== Hashcat Errors ===")
@@ -82,13 +78,12 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                         + user
                         + "/Desktop/Backup directory to extract hashes from them."
                     )
-                    command_for_extracth = (
-                        f"impacket-secretsdump "
-                        f"-sam /home/{user}/Desktop/Backup/sam.save "
-                        f"-system /home/{user}/Desktop/Backup/system.save LOCAL"
-                    )
                     resultextract = subprocess.run(
-                        command_for_extracth, shell=True, capture_output=True, text=True
+                        ["impacket-secretsdump",
+                         "-sam", rf"/home/{user}/Desktop/Backup/sam.save",
+                         "-system", rf"/home/{user}/Desktop/Backup/system.save",
+                         "LOCAL"],
+                        capture_output=True, text=True
                     )
                     print(info + "These are the results:\n" + resultextract.stdout)
                     if (
@@ -102,12 +97,10 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                         inputs
                         + "Please write the hash that you want to crack (from the results): "
                     )
-                    command_lunch_hashcat = (
-                        f'hashcat -O -m 1000 "{yourhash}" "{chemin_fichier}"'
-                    )
                     command_lunch_hashcats = subprocess.run(
-                        command_lunch_hashcat, shell=True, capture_output=True, text=True
-                    )
+                    ["hashcat", "-O", "-m", "1000", yourhash, chemin_fichier],
+                    capture_output=True, text=True
+                )
                     print(command_lunch_hashcats.stdout)
 
                     if command_lunch_hashcats.stderr:
@@ -121,13 +114,12 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                         + user
                         + "/Desktop/Backup directory to extract hashes from them."
                     )
-                    command_for_extracth = (
-                        f"impacket-secretsdump "
-                        f"-sam /Users/{user}/Desktop/Backup/sam.save "
-                        f"-system /Users/{user}/Desktop/Backup/system.save LOCAL"
-                    )
                     resultextract = subprocess.run(
-                        command_for_extracth, shell=True, capture_output=True, text=True
+                        ["impacket-secretsdump",
+                         "-sam", rf"/Users/{user}/Desktop/Backup/sam.save",
+                         "-system", rf"/Users/{user}/Desktop/Backup/system.save",
+                         "LOCAL"],
+                        capture_output=True, text=True
                     )
                     print(info + "These are the results:\n" + resultextract.stdout)
                     if (
@@ -141,12 +133,10 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                         inputs
                         + "Please write the hash that you want to crack (from the results): "
                     )
-                    command_lunch_hashcat = (
-                        f'hashcat -O -m 1000 "{yourhash}" "{chemin_fichier}"'
-                    )
                     command_lunch_hashcats = subprocess.run(
-                        command_lunch_hashcat, shell=True, capture_output=True, text=True
-                    )
+                    ["hashcat", "-O", "-m", "1000", yourhash, chemin_fichier],
+                    capture_output=True, text=True
+                )
                     print(command_lunch_hashcats.stdout)
                     if command_lunch_hashcats.stderr:
                         print(error + "\n=== Hashcat Errors ===")
@@ -158,11 +148,9 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                             + "/Desktop/Backup directory to extract hashes from them."
                         )
                         exit()
-                command_lunch_hashcat = (
-                    f'"{extraction_path2}" -O -m 1000 "{yourhash}" "{chemin_fichier}"'
-                )
                 command_lunch_hashcats = subprocess.run(
-                    command_lunch_hashcat, shell=True, capture_output=True, text=True
+                    [extraction_path2, "-O", "-m", "1000", yourhash, chemin_fichier],
+                    capture_output=True, text=True
                 )
                 print(command_lunch_hashcats.stdout)
 
