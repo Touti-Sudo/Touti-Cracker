@@ -40,9 +40,9 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                     print(info + "Extracting hashes from system and SAM files...")
 
                     resultextract = subprocess.run(
-                        ["python", f"C:\Users\{user}\AppData\Local\Programs\Python\{versionpy}\Scripts\secretsdump.py",
-                         "-sam", f"C:\Users\{user}\Desktop\Backup\sam.save",
-                         "-system", f"C:\Users\{user}\Desktop\Backup\system.save",
+                        ["python", rf"C:\Users\{user}\AppData\Local\Programs\Python\{versionpy}\Scripts\secretsdump.py",
+                         "-sam", rf"C:\Users\{user}\Desktop\Backup\sam.save",
+                         "-system", rf"C:\Users\{user}\Desktop\Backup\system.save",
                          "LOCAL"],
                         capture_output=True, text=True
                     )
@@ -80,8 +80,8 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                     )
                     resultextract = subprocess.run(
                         ["impacket-secretsdump",
-                         "-sam", f"/home/{user}/Desktop/Backup/sam.save",
-                         "-system", f"/home/{user}/Desktop/Backup/system.save",
+                         "-sam", rf"/home/{user}/Desktop/Backup/sam.save",
+                         "-system", rf"/home/{user}/Desktop/Backup/system.save",
                          "LOCAL"],
                         capture_output=True, text=True
                     )
@@ -116,8 +116,8 @@ def cracker(inputs,OS,user,info,error,warning,the_link,versionpy,disclamer,extra
                     )
                     resultextract = subprocess.run(
                         ["impacket-secretsdump",
-                         "-sam", f"/Users/{user}/Desktop/Backup/sam.save",
-                         "-system", f"/Users/{user}/Desktop/Backup/system.save",
+                         "-sam", rf"/Users/{user}/Desktop/Backup/sam.save",
+                         "-system", rf"/Users/{user}/Desktop/Backup/system.save",
                          "LOCAL"],
                         capture_output=True, text=True
                     )
