@@ -10,7 +10,7 @@ do not forget to star ⭐🌟⭐
 [![Issues](https://img.shields.io/github/issues/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/issues)
 [![Closed Issues](https://img.shields.io/github/issues-closed/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/issues)
 
-  [![Contributors](https://img.shields.io/github/contributors/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Bloul-Mohamed/gazachat_app/graphs/contributors)
+  [![Contributors](https://img.shields.io/github/contributors/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/graphs/contributors)
   [![Forks](https://img.shields.io/github/forks/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/network/members)
   [![Stars](https://img.shields.io/github/stars/Touti-Sudo/Touti-Cracker?style=for-the-badge&logo=github)](https://github.com/Touti-Sudo/Touti-Cracker/stargazers)
 
